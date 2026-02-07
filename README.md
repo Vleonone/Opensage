@@ -147,6 +147,16 @@ OpenSage is the open-source core of **AeonSage Pro**. It relies on these giants:
 *   **[OpenRouter](https://openrouter.ai)**: The marketplace for unified model access.
 *   **[Groq](https://groq.com)**: The hardware enabling sub-second inference.
 
+## 🤝 Contributing
+
+**We want this to be the universal router for everyone.**
+Whether you use Next.js, Python, or Go - the logic should be shared.
+
+*   **JavaScript/TypeScript**: Ready today.
+*   **Python/Go**: Contributors needed!
+
+👉 **[Read the Contribution Guide](./CONTRIBUTING.md)** to send your first PR.
+
 ## License
 
 MIT © [AeonSage Team](https://aeonsage.org)
