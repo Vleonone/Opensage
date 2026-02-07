@@ -1,0 +1,31 @@
+{
+    "name": "opensage",
+    "version": "1.0.0",
+    "description": "Sovereign Intelligence Router: Locally-hosted, privacy-first cognitive routing for LLMs.",
+    "main": "dist/router.js",
+    "types": "dist/router.d.ts",
+    "type": "module",
+    "scripts": {
+        "build": "tsc",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "prepare": "npm run build"
+    },
+    "keywords": [
+        "llm",
+        "router",
+        "ai",
+        "sovereign",
+        "privacy",
+        "ollama",
+        "openrouter"
+    ],
+    "author": "AeonSage Team",
+    "license": "MIT",
+    "dependencies": {
+        "zod": "^3.22.0"
+    },
+    "devDependencies": {
+        "typescript": "^5.0.0",
+        "@types/node": "^20.0.0"
+    }
+}
