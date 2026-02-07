@@ -19,9 +19,15 @@
 [![Version](https://img.shields.io/badge/Version-1.0.0-00B51A?style=flat-square&labelColor=c2c2c2)](./package.json)
 [![License](https://img.shields.io/badge/License-Hybrid_Apache_2.0_&_OSCL-00B51A?style=flat-square&labelColor=c2c2c2)](./LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-00B51A?style=flat-square&logo=typescript&logoColor=white&labelColor=c2c2c2)](./tsconfig.json)
-[![Node](https://img.shields.io/badge/Node.js-18+-00B51A?style=flat-square&logo=node.js&logoColor=white&labelColor=c2c2c2)](https://nodejs.org)
-[![Ollama](https://img.shields.io/badge/Ollama-Required-00B51A?style=flat-square&labelColor=c2c2c2)](https://ollama.com)
+[![Node](https://img.shields.io/badge/Node.js-18+-00B51A?style=flat-square&logo=nodedotjs&logoColor=white&labelColor=c2c2c2)](https://nodejs.org)
+[![Ollama](https://img.shields.io/badge/Ollama-Required-00B51A?style=flat-square&logo=ollama&logoColor=white&labelColor=c2c2c2)](https://ollama.com)
 [![OpenRouter](https://img.shields.io/badge/OpenRouter-Compatible-00B51A?style=flat-square&labelColor=c2c2c2)](https://openrouter.ai)
+
+### Built With
+
+[![Express](https://img.shields.io/badge/Express-00B51A?style=flat-square&logo=express&logoColor=white&labelColor=c2c2c2)](https://expressjs.com)
+[![Socket.io](https://img.shields.io/badge/Socket.io-00B51A?style=flat-square&logo=socketdotio&logoColor=white&labelColor=c2c2c2)](https://socket.io)
+[![Zod](https://img.shields.io/badge/Zod-00B51A?style=flat-square&logo=zod&logoColor=white&labelColor=c2c2c2)](https://zod.dev)
 
 </div>
 

@@ -18,7 +18,14 @@
 
 [![License](https://img.shields.io/badge/License-Hybrid_Apache_2.0_&_OSCL-00B51A?style=flat-square)](./LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-00B51A?style=flat-square&logo=typescript&logoColor=white)](./tsconfig.json)
-[![Node](https://img.shields.io/badge/Node.js-≥18-00B51A?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org)
+[![Node](https://img.shields.io/badge/Node.js-≥18-00B51A?style=flat-square&logo=nodedotjs&logoColor=white)](https://nodejs.org)
+[![Ollama](https://img.shields.io/badge/Ollama-Required-00B51A?style=flat-square&logo=ollama&logoColor=white)](https://ollama.com)
+
+### 技术栈
+
+[![Express](https://img.shields.io/badge/Express-00B51A?style=flat-square&logo=express&logoColor=white)](https://expressjs.com)
+[![Socket.io](https://img.shields.io/badge/Socket.io-00B51A?style=flat-square&logo=socketdotio&logoColor=white)](https://socket.io)
+[![Zod](https://img.shields.io/badge/Zod-00B51A?style=flat-square&logo=zod&logoColor=white)](https://zod.dev)
 
 </div>
 
