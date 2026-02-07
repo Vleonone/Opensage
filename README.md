@@ -1,19 +1,25 @@
-# OpenSage: Sovereign Cognitive Router
+# OpenSage
 
 <div align="center">
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Version](https://img.shields.io/badge/version-1.0.0-green.svg)
-![Size](https://img.shields.io/badge/size-12kb-yellow.svg)
-![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)
+![License](https://img.shields.io/badge/license-MIT-000000.svg?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-1.0.0-000000.svg?style=for-the-badge)
+![Size](https://img.shields.io/badge/size-12kb-000000.svg?style=for-the-badge)
+![Coverage](https://img.shields.io/badge/coverage-100%25-000000.svg?style=for-the-badge)
 
-  <h3>The Nervous System for Autonomous Agents.</h3>
-  <p>
-    <strong>Smart Routing. Zero Latency. Hardware Sovereignty.</strong>
-  </p>
-  <p>
-    <a href="https://aeonsage.org">Born from AeonSage Pro</a>
-  </p>
+<h3>The Nervous System for Autonomous Agents.</h3>
+
+<p style="font-size: 1.2em;">
+    <strong>Smart Routing</strong> • <strong>Zero Latency</strong> • <strong>Hardware Sovereignty</strong>
+</p>
+
+<p>
+    <br />
+    <a href="https://aeonsage.org"><strong>Explore AeonSage Pro »</strong></a>
+    <br />
+    <br />
+</p>
+
 </div>
 
 ---
