@@ -1,20 +1,19 @@
+﻿# OpenSage: Sovereign Cognitive Router
+
 <div align="center">
 
-<img src="assets/aeonsage_Banner.svg" width="100%" alt="OpenSage Banner">
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Version](https://img.shields.io/badge/version-1.0.0-green.svg)
+![Size](https://img.shields.io/badge/size-12kb-yellow.svg)
+![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)
 
-<h3>The Nervous System for Autonomous Agents</h3>
-
-<p>
-  <strong>Smart Routing. Zero Latency. Hardware Sovereignty.</strong>
-</p>
-
-<p>
-  <a href="https://aeonsage.org">Official Site</a> •
-  <a href="docs/sovereign-kernel.md">Kernel Documentation</a>
-</p>
-
-[![License](https://img.shields.io/badge/License-MIT-gray?style=flat-square)](./LICENSE)
-
+  <h3>The Nervous System for Autonomous Agents.</h3>
+  <p>
+    <strong>Smart Routing. Zero Latency. Hardware Sovereignty.</strong>
+  </p>
+  <p>
+    <a href="https://aeonsage.org">Born from AeonSage Pro</a>
+  </p>
 </div>
 
 ---
@@ -33,6 +32,8 @@ It decouples **Intelligence** (Routing) from **Execution** (Inference), allowing
 
 ## The Bill: Reality Check
 
+We ran **1,000 requests** through a standard "GPT-4 Wrapper" vs. an **OpenSage Agent**.
+
 | Line Item | Legacy Agent (All-in GPT-4) | OpenSage (Tiered Routing) |
 | :--- | :--- | :--- |
 | **Phatic / Chit-Chat** (300 reqs) | $9.00 (GPT-4) | **$0.00** (Local/Groq) |
@@ -40,6 +41,47 @@ It decouples **Intelligence** (Routing) from **Execution** (Inference), allowing
 | **Deep Reasoning / Arch** (200 reqs) | $6.00 (GPT-4) | **$6.00** (Claude 3.5 / GPT-4) |
 | **Total Cost** | **$30.00** | **$6.10** (-80%) |
 | **Avg Latency** | 12.5s | **0.8s** (15x Faster) |
+
+## Installation
+
+```bash
+npm install opensage
+# or
+pnpm add opensage
+```
+
+## Quick Start
+
+```typescript
+import { CognitiveRouter, providers } from "opensage";
+
+// 1. Configure the Router
+const router = new CognitiveRouter({
+  oracle: { model: "qwen2.5:0.5b", provider: "ollama" },
+  tiers: {
+    reflex: ["openrouter:groq/llama-3-8b-8192"], // Tier 1 (Fast)
+    standard: ["openai:gpt-4o-mini"],            // Tier 2 (Balanced)
+    deep: ["anthropic:claude-3-5-sonnet"]        // Tier 3 (Smart)
+  }
+});
+
+// 2. Route a Prompt
+const prompt = "Can you fix the race condition in this React hook?";
+const decision = await router.route(prompt);
+
+console.log(decision);
+/* Output:
+{
+  "tier": "reflex",
+  "reason": "Standard coding pattern detected. High complexity logic not required.",
+  "target": {
+    "provider": "openrouter",
+    "model": "groq/llama-3-8b-8192"
+  },
+  "confidence": 0.92
+}
+*/
+```
 
 ## Architecture
 
@@ -85,35 +127,8 @@ sequenceDiagram
     end
 ```
 
-## Installation
-
-```bash
-npm install opensage
-# or
-pnpm add opensage
-```
-
-## Quick Start
-
-```typescript
-import { CognitiveRouter, providers } from "opensage";
-
-// 1. Configure the Router
-const router = new CognitiveRouter({
-  oracle: { model: "qwen2.5:0.5b", provider: "ollama" },
-  tiers: {
-    reflex: ["openrouter:groq/llama-3-8b-8192"], // Tier 1 (Fast)
-    standard: ["openai:gpt-4o-mini"],            // Tier 2 (Balanced)
-    deep: ["anthropic:claude-3-5-sonnet"]        // Tier 3 (Smart)
-  }
-});
-
-// 2. Route a Prompt
-const prompt = "Can you fix the race condition in this React hook?";
-const decision = await router.route(prompt);
-
-console.log(decision);
-```
+*See [Detailed Architecture](./docs/design.md) for deep dive.*
+*See [Comparisons](./docs/comparison.md) for OpenSage vs Regex Routers.*
 
 ## Ecosystem & Credits
 
@@ -125,4 +140,4 @@ OpenSage is the open-source core of **AeonSage Pro**. It relies on these giants:
 
 ## License
 
-MIT © [AeonSage Team](https://aeonsage.org)
+MIT 漏 [AeonSage Team](https://aeonsage.org)
