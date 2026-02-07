@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/Opensage-Aeon.svg" width="100%" alt="OpenSage-Aeon Banner">
+<img src="assets/opensage.svg" width="100%" alt="OpenSage Banner">
 
 <h3>The Cognitive Routing Core for LLM Agents</h3>
 
@@ -71,10 +71,10 @@ It works by running a local Small Language Model (the "Oracle") to semantically 
 
     User(["User Prompt"]):::user --> Ingest
     
-    subgraph Velonlabs ["🌐 Velonlabs Cognitive Kernel"]
+    subgraph Velonlabs ["Velonlabs Cognitive Kernel"]
         direction TB
         style Velonlabs fill:#111111,stroke:#66ff66,stroke-width:2px,color:#66ff66
-        Ingest[("📥 Ingestion")]:::logic --> Oracle
+        Ingest[("Ingestion")]:::logic --> Oracle
         Oracle{{"Local Oracle\n(qwen2.5:0.5b)"}}:::core
         
         Oracle == Analysis ==> Router(("Synapse\nrouter")):::logic

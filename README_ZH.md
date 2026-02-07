@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/Opensage-Aeon.svg" width="100%" alt="OpenSage-Aeon Banner">
+<img src="assets/opensage.svg" width="100%" alt="OpenSage Banner">
 
 <h3>自主智能体的认知神经系统</h3>
 
