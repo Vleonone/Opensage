@@ -87,6 +87,8 @@ console.log(decision);
 
 OpenSage is built on the **"Optimistic Cascading"** pattern.
 
+### 1. Decision Flow
+
 ```mermaid
 graph TD
     User["Input"] --> Oracle["Local Oracle (SLM)"]
@@ -97,6 +99,32 @@ graph TD
     Tier1 -->|Verify| Success{Good?}
     Success -->|No| Tier2
     Success -->|Yes| Finish
+```
+
+### 2. Request Lifecycle (Sequence)
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant R as OpenSage Router
+    participant O as Local Oracle
+    participant G as Groq (Tier 1)
+    participant C as Claude 3.5 (Tier 3)
+
+    U->>R: "Fix this React hook"
+    R->>O: Analyze Intent?
+    O-->>R: Score: 2 (Standard Pattern)
+    
+    R->>G: Execute Prompt
+    G-->>R: Result (0.4s)
+    
+    alt Verification Pass
+        R->>U: Return Result
+    else Verification Fail
+        R->>C: Escalate (Retry)
+        C-->>R: Result (Wait 5s)
+        R->>U: Return Result
+    end
 ```
 
 *See [Detailed Architecture](./docs/design.md) for deep dive.*
