@@ -23,14 +23,14 @@ It decouples **Intelligence** (Routing) from **Execution** (Inference), allowing
 
 > **"Don't rent intelligence. Own it."**
 
-## ⚡ Highlights
+## Highlights
 
-*   **🧠 Local Oracle**: A tiny, specialized SLM (Small Language Model) runs locally to analyze user intent, complexity, and domain *before* any request leaves your machine.
-*   **📉 95% Cost Reduction**: Automatically routes "easy" tasks (80% of traffic) to free/cheap models like **Llama 3** (via Groq) or local quantized models.
-*   **🚀 20x Lower Latency**: Simple queries are answered in **<0.6s** using hardware-accelerated LPU clusters, skipping the 12s+ wait time of GPT-4.
-*   **🛡️ Sovereign Privacy**: Sensitive or trivial data never touches a third-party cloud if you configure local fallbacks.
+*   **Local Oracle**: A tiny, specialized SLM (Small Language Model) runs locally to analyze user intent, complexity, and domain *before* any request leaves your machine.
+*   **95% Cost Reduction**: Automatically routes "easy" tasks (80% of traffic) to free/cheap models like **Llama 3** (via Groq) or local quantized models.
+*   **20x Lower Latency**: Simple queries are answered in **<0.6s** using hardware-accelerated LPU clusters, skipping the 12s+ wait time of GPT-4.
+*   **Sovereign Privacy**: Sensitive or trivial data never touches a third-party cloud if you configure local fallbacks.
 
-## 📉 The Bill: Reality Check
+## The Bill: Reality Check
 
 We ran **1,000 requests** through a standard "GPT-4 Wrapper" vs. an **OpenSage Agent**.
 
@@ -39,10 +39,10 @@ We ran **1,000 requests** through a standard "GPT-4 Wrapper" vs. an **OpenSage A
 | **Phatic / Chit-Chat** (300 reqs) | $9.00 (GPT-4) | **$0.00** (Local/Groq) |
 | **Simple Coding / Refactor** (500 reqs) | $15.00 (GPT-4) | **$0.10** (Llama 3 70B) |
 | **Deep Reasoning / Arch** (200 reqs) | $6.00 (GPT-4) | **$6.00** (Claude 3.5 / GPT-4) |
-| **Total Cost** | **$30.00** | **$6.10** (📉 **-80%**) |
-| **Avg Latency** | 12.5s | **0.8s** (🚀 **15x Faster**) |
+| **Total Cost** | **$30.00** | **$6.10** (-80%) |
+| **Avg Latency** | 12.5s | **0.8s** (15x Faster) |
 
-## 📦 Installation
+## Installation
 
 ```bash
 npm install opensage
@@ -50,7 +50,7 @@ npm install opensage
 pnpm add opensage
 ```
 
-## 💻 Quick Start
+## Quick Start
 
 ```typescript
 import { CognitiveRouter, providers } from "opensage";
@@ -83,7 +83,7 @@ console.log(decision);
 */
 ```
 
-## 🧠 Architecture
+## Architecture
 
 OpenSage is built on the **"Optimistic Cascading"** pattern.
 
@@ -102,7 +102,7 @@ graph TD
 *See [Detailed Architecture](./docs/design.md) for deep dive.*
 *See [Comparisons](./docs/comparison.md) for OpenSage vs Regex Routers.*
 
-## 🛠️ Ecosystem & Credits
+## Ecosystem & Credits
 
 OpenSage is the open-source core of **AeonSage Pro**. It relies on these giants:
 
