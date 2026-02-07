@@ -168,6 +168,12 @@ Whether you use Next.js, Python, or Go - the logic should be shared.
 
 **[Read the Contribution Guide](./CONTRIBUTING.md)** to send your first PR.
 
+## Connect
+
+[![Website](https://img.shields.io/badge/Website-aeonsage.org-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://aeonsage.org)
+[![GitHub](https://img.shields.io/badge/GitHub-AeonSage-black?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Vleonone)
+
 ## License
 
-MIT © [AeonSage Team](https://aeonsage.org)
+**MIT** © 2024
+[![AeonSage Team](https://img.shields.io/badge/AeonSage-Team-000000?style=flat-square&logo=vercel&logoColor=white)](https://aeonsage.org)
