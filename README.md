@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/aeonsage_banner.svg" alt="OPENSAGE" width="100%">
+<img src="https://raw.githubusercontent.com/Vleonone/Opensage/main/assets/aeonsage_Banner.svg" alt="OPENSAGE" width="100%">
 
 **The Reference Implementation of Sovereign Intelligence**
 
@@ -11,8 +11,17 @@
   <a href="docs/sovereign-kernel.md">Kernel Documentation</a>
 </p>
 
+<p align="center">
+  <a href="https://github.com/Vleonone/AeonsagePro/blob/main/docs/install.md">
+    <img src="https://img.shields.io/badge/MAC-INSTALL-7209b7?style=for-the-badge&logo=apple&logoColor=white&labelColor=black" alt="Mac Install">
+  </a>
+  <a href="https://github.com/Vleonone/AeonsagePro/blob/main/docs/install.md#50-docker-deployment-containerized-isolation">
+    <img src="https://img.shields.io/badge/WIN-DOCKER-7209b7?style=for-the-badge&logo=docker&logoColor=white&labelColor=black" alt="Windows Docker">
+  </a>
+</p>
+
 [![License](https://img.shields.io/badge/License-MIT-gray?style=flat-square)](./LICENSE)
-[![VDID](https://img.shields.io/badge/VDID-Verified_Identity-E8471C?style=flat-square&logo=fingerprint&logoColor=white)](docs/sovereign-kernel.md)
+[![License](https://img.shields.io/badge/License-MIT-gray?style=flat-square)](./LICENSE)
 
 </div>
 
@@ -31,6 +40,20 @@
 *   **95% Cost Reduction**: Automatically routes "easy" tasks (80% of traffic) to free/cheap models like **Llama 3** (via Groq) or local quantized models.
 *   **Zero-Latency Handoff**: <10ms routing overhead.
 
+### 2.2 System Architecture (Data Flow)
+
+```mermaid
+graph TD
+    User([User Request]) --> Gateway[Gateway Node]
+    Gateway --> Oracle{Local Oracle<br>(Small LM)}
+    Oracle -->|High Entropy| Router[Router Logic]
+    Router -->|Tier 1: Reflex| LocalLLM[Local Llama3]
+    Router -->|Tier 2: Reasoning| CloudLLM[Groq / OpenRouter]
+    LocalLLM -->|Token Stream| Response
+    CloudLLM -->|Token Stream| Response
+    Response --> User
+```
+
 ### 2.3 Ecosystem Integration Matrix
 
 OpenSage acts as the **Connective Tissue** between these sovereign technologies.
@@ -44,8 +67,7 @@ OpenSage acts as the **Connective Tissue** between these sovereign technologies.
 
 Unlike simplified "router" libraries, OpenSage is a **Deterministic Substrate** that enforces:
 1.  **Entropy Reduction**: Routing logic based on task complexity, not just model availability.
-2.  **Identity Assertion**: Every cognitive action is cryptographically signed.
-3.  **Sovereign Execution**: Prefers local inference (Ollama/Llama3) over cloud APIs when possible.
+2.  **Sovereign Execution**: Prefers local inference (Ollama/Llama3) over cloud APIs when possible.
 
 ## 2. Technical Specifications
 
