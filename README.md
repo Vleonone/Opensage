@@ -16,12 +16,12 @@
   <a href="README_ZH.md">中文文档</a>
 </p>
 
-[![Version](https://img.shields.io/badge/Version-1.0.0-2ea44f?style=flat-square)](./package.json)
-[![License](https://img.shields.io/badge/License-MIT-2ea44f?style=flat-square)](./LICENSE)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-2ea44f?style=flat-square&logo=typescript&logoColor=white)](./tsconfig.json)
-[![Node](https://img.shields.io/badge/Node.js-18+-2ea44f?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org)
-[![Ollama](https://img.shields.io/badge/Ollama-Required-2ea44f?style=flat-square)](https://ollama.com)
-[![OpenRouter](https://img.shields.io/badge/OpenRouter-Compatible-2ea44f?style=flat-square)](https://openrouter.ai)
+[![Version](https://img.shields.io/badge/Version-1.0.0-39ff14?style=flat-square&labelColor=2a2a2a)](./package.json)
+[![License](https://img.shields.io/badge/License-MIT-39ff14?style=flat-square&labelColor=2a2a2a)](./LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-39ff14?style=flat-square&logo=typescript&logoColor=white&labelColor=2a2a2a)](./tsconfig.json)
+[![Node](https://img.shields.io/badge/Node.js-18+-39ff14?style=flat-square&logo=node.js&logoColor=white&labelColor=2a2a2a)](https://nodejs.org)
+[![Ollama](https://img.shields.io/badge/Ollama-Required-39ff14?style=flat-square&labelColor=2a2a2a)](https://ollama.com)
+[![OpenRouter](https://img.shields.io/badge/OpenRouter-Compatible-39ff14?style=flat-square&labelColor=2a2a2a)](https://openrouter.ai)
 
 </div>
 
