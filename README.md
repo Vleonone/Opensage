@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/opensage_banner.png" alt="OPENSAGE" width="100%">
+<img src="./assets/aeonsage_Banner.svg" alt="OPENSAGE" width="100%">
 
 # OPENSAGE: THE COGNITIVE KERNEL
 
@@ -10,7 +10,7 @@
 
 <p>
   <a href="https://aeonsage.org">Official Site</a> •
-  <a href="https://docs.aeonsage.org">Kernel Documentation</a>
+  <a href="docs/sovereign-kernel.md">Kernel Documentation</a>
 </p>
 
 [![License](https://img.shields.io/badge/License-MIT-gray?style=flat-square)](./LICENSE)
@@ -18,6 +18,26 @@
 </div>
 
 ---
+
+### 1.0 The Nervous System for Autonomous Agents
+
+**OpenSage** is a production-grade **Cognitive Router** designed to sit between your User and your LLMs. It decouples **Intelligence** (Routing) from **Execution** (Inference), allowing you to build agents that are simultaneously **smarter**, **faster**, and **95% cheaper**.
+
+> "Don't rent intelligence. Own it."
+
+## 2.0 Technical Highlights
+
+### 2.1 Sovereign Cognitive Router
+*   **Local Oracle**: A tiny, specialized SLM (Small Language Model) runs locally to analyze user intent, complexity, and domain *before* any request leaves your machine.
+*   **95% Cost Reduction**: Automatically routes "easy" tasks (80% of traffic) to free/cheap models like **Llama 3** (via Groq) or local quantized models.
+*   **Zero-Latency Handoff**: <10ms routing overhead.
+
+### 2.3 Ecosystem Integration Matrix
+
+OpenSage acts as the **Connective Tissue** between these sovereign technologies.
+> **USER GUIDE**: For detailed operation of the Neural Uplink, refer to the [Sovereign Cognitive Kernel Manual](docs/sovereign-kernel.md).
+
+| COMPONENT | TECHNOLOGY | ROLE |
 
 ## 1. Kernel Abstract
 
