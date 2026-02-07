@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/Logo.svg" width="100%" alt="OpenSage Logo">
+<img src="assets/Logo.svg" width="180" alt="OpenSage Logo">
 
 <h3>The Cognitive Routing Core for LLM Agents</h3>
 
@@ -60,7 +60,6 @@ The current release (`v1.0.0`) includes the core routing logic, local oracle int
 
 OpenSage operates a multi-stage pipeline designed to minimize latency while maximizing routing accuracy. The following diagram illustrates the critical path from user input to final response.
 
-![OpenSage Banner](assets/Opensage_banner.svg)
 ![OpenSage Flow](assets/Flow.png)
 
 **Workflow Safety**: The system is designed to be "fail-open". If the local Ollama instance is unreachable or times out, the router automatically defaults to the **Standard Tier**, ensuring that the agent pipeline is never blocked by a routing failure.

@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/Logo.svg" width="100%" alt="OpenSage Logo">
+<img src="assets/Logo.svg" width="180" alt="OpenSage Logo">
 
 <h3>LLM Agent 的认知路由核心</h3>
 
@@ -51,26 +51,7 @@ OpenSage 会运行一个本地的微型模型 ("Oracle") 来语义分析每条�
 
 ## 工作原理
 
-```
-用户输入
-    |
-    v
-[本地 Oracle] -- Ollama (qwen2.5:0.5b, <500ms)
-    |
-    |-- complexity: 1-10 (复杂度)
-    |-- domain: coding / creative / logic / ... (领域)
-    |-- suggested_tier: reflex / standard / deep (建议层级)
-    |
-    v
-[分级决策]
-    |
-    |-- 分数 1-3  -->  Reflex 层  -->  openrouter:groq/llama-3-8b-8192
-    |-- 分数 4-7  -->  Standard 层 -->  gpt-4o-mini
-    |-- 分数 8-10 -->  Deep 层     -->  claude-3-5-sonnet
-    |
-    v
-[返回决策: { provider, model, tier, judgment }]
-```
+![架构流程](assets/Flow.png)
 
 ---
 
