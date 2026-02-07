@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/Vleonone/Opensage/main/assets/aeonsage_Banner.svg" alt="OPENSAGE" width="100%">
+# OPENSAGE
 
 **The Reference Implementation of Sovereign Intelligence**
 
