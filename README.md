@@ -145,7 +145,10 @@ OpenSage is the open-source core of **AeonSage Pro**. It relies on these giants:
 
 *   **[Ollama](https://ollama.com)**: The engine for local inference.
 *   **[OpenRouter](https://openrouter.ai)**: The marketplace for unified model access.
+*   **[OpenRouter](https://openrouter.ai)**: The marketplace for unified model access.
 *   **[Groq](https://groq.com)**: The hardware enabling sub-second inference.
+
+> 🧩 **Want to make it smarter?** Check out the **[Intelligence Stack](./docs/integrations.md)** (Memory, RAG, Tools).
 
 ## For Gateway Builders
 
