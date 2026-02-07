@@ -17,12 +17,12 @@
   <a href="README.md">English</a>
 </p>
 
-[![Version](https://img.shields.io/badge/Version-1.0.0-39ff14?style=flat-square&labelColor=2a2a2a)](./package.json)
-[![License](https://img.shields.io/badge/License-MIT-39ff14?style=flat-square&labelColor=2a2a2a)](./LICENSE)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-39ff14?style=flat-square&logo=typescript&logoColor=white&labelColor=2a2a2a)](./tsconfig.json)
-[![Node](https://img.shields.io/badge/Node.js-18+-39ff14?style=flat-square&logo=node.js&logoColor=white&labelColor=2a2a2a)](https://nodejs.org)
-[![Ollama](https://img.shields.io/badge/Ollama-Required-39ff14?style=flat-square&labelColor=2a2a2a)](https://ollama.com)
-[![OpenRouter](https://img.shields.io/badge/OpenRouter-Compatible-39ff14?style=flat-square&labelColor=2a2a2a)](https://openrouter.ai)
+[![Version](https://img.shields.io/badge/Version-1.0.0-39ff14?style=flat-square&labelColor=c2c2c2)](./package.json)
+[![License](https://img.shields.io/badge/License-MIT-39ff14?style=flat-square&labelColor=c2c2c2)](./LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-39ff14?style=flat-square&logo=typescript&logoColor=white&labelColor=c2c2c2)](./tsconfig.json)
+[![Node](https://img.shields.io/badge/Node.js-18+-39ff14?style=flat-square&logo=node.js&logoColor=white&labelColor=c2c2c2)](https://nodejs.org)
+[![Ollama](https://img.shields.io/badge/Ollama-Required-39ff14?style=flat-square&labelColor=c2c2c2)](https://ollama.com)
+[![OpenRouter](https://img.shields.io/badge/OpenRouter-Compatible-39ff14?style=flat-square&labelColor=c2c2c2)](https://openrouter.ai)
 
 > 🚧 **Alpha 阶段** — 核心路由逻辑已实现，CLI 和插件系统正在开发中
 
