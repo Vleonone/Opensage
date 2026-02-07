@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/banner.png" width="100%" alt="OpenSage Banner">
+<img src="assets/Opensage-Aeon.svg" width="100%" alt="OpenSage-Aeon Banner">
 
 <h3>自主智能体的认知神经系统</h3>
 
@@ -87,27 +87,27 @@ graph TD
     classDef logic fill:#000000,stroke:#99ff99,stroke-width:2px,color:#ffffff,stroke-dasharray: 5 5,rx:5,ry:5;
     linkStyle default stroke:#66ff66,stroke-width:2px;
 
-    User(["👤 用户输入"]):::user --> Ingest
+    User(["用户输入"]):::user --> Ingest
     
-    subgraph Velonlabs ["🌐 Velonlabs 认知内核"]
+    subgraph Velonlabs ["Velonlabs 认知内核"]
         direction TB
         style Velonlabs fill:#111111,stroke:#66ff66,stroke-width:2px,color:#66ff66
-        Ingest[("📥 接收")]:::logic --> Oracle
-        Oracle{{"🔮 本地 Oracle\n(qwen2.5:0.5b)"}}:::core
+        Ingest[("接收")]:::logic --> Oracle
+        Oracle{{"本地 Oracle\n(qwen2.5:0.5b)"}}:::core
         
-        Oracle == 深度分析 ==> Router(("⚡ 神经突触\n决策器")):::logic
+        Oracle == 深度分析 ==> Router(("神经突触\n决策器")):::logic
     end
 
-    Router -->|反射层 (1-3)| T1["⚡ Tier 1: Reflex\n(Groq / Llama-3)"]:::tier
-    Router -->|标准层 (4-7)| T2["⚙️ Tier 2: Standard\n(GPT-4o-mini)"]:::tier
-    Router -->|深度层 (8-10)| T3["🧠 Tier 3: Deep\n(Claude 3.5 Sonnet)"]:::tier
+    Router -->|反射层 (1-3)| T1["Tier 1: Reflex\n(Groq / Llama-3)"]:::tier
+    Router -->|标准层 (4-7)| T2["Tier 2: Standard\n(GPT-4o-mini)"]:::tier
+    Router -->|深度层 (8-10)| T3["Tier 3: Deep\n(Claude 3.5 Sonnet)"]:::tier
 
-    T1 -.->|质量验证| AutoCheck{"🔍 智能质检"}:::logic
-    AutoCheck -->|❌ 未通过| T2
-    AutoCheck -->|✅ 通过| Output
+    T1 -.->|质量验证| AutoCheck{"智能质检"}:::logic
+    AutoCheck -->|未通过| T2
+    AutoCheck -->|通过| Output
 
     T2 --> Output
-    T3 --> Output([("📤 最终结果")]):::user
+    T3 --> Output([("最终结果")]):::user
 ```
 
 **工作原理**：Oracle 为每条请求打出 1-10 的复杂度分数，然后路由到对应层级。如果低层级的结果未通过验证，会自动升级到上一层级。Oracle 宕机时自动降级到标准层（Fail-Open 设计）。

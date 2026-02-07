@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/banner.png" width="100%" alt="OpenSage Banner">
+<img src="assets/Opensage-Aeon.svg" width="100%" alt="OpenSage-Aeon Banner">
 
 <h3>The Cognitive Routing Core for LLM Agents</h3>
 
@@ -59,12 +59,7 @@ It works by running a local Small Language Model (the "Oracle") to semantically 
 
 ## How It Works
 
-```
-User Prompt
-    |
-    v
-[Local Oracle] -- Ollama (qwen2.5:0.5b, <500ms)
-    |
+
 ```mermaid
    graph TD
     %% Cyber-Sage Theme
@@ -74,27 +69,27 @@ User Prompt
     classDef logic fill:#000000,stroke:#99ff99,stroke-width:2px,color:#ffffff,stroke-dasharray: 5 5,rx:5,ry:5;
     linkStyle default stroke:#66ff66,stroke-width:2px;
 
-    User(["👤 User Prompt"]):::user --> Ingest
+    User(["User Prompt"]):::user --> Ingest
     
     subgraph Velonlabs ["🌐 Velonlabs Cognitive Kernel"]
         direction TB
         style Velonlabs fill:#111111,stroke:#66ff66,stroke-width:2px,color:#66ff66
         Ingest[("📥 Ingestion")]:::logic --> Oracle
-        Oracle{{"🔮 Local Oracle\n(qwen2.5:0.5b)"}}:::core
+        Oracle{{"Local Oracle\n(qwen2.5:0.5b)"}}:::core
         
-        Oracle == Analysis ==> Router(("⚡ Synapse\nrouter")):::logic
+        Oracle == Analysis ==> Router(("Synapse\nrouter")):::logic
     end
 
-    Router -->|Reflex (1-3)| T1["⚡ Tier 1: Reflex\n(Groq / Llama-3)"]:::tier
-    Router -->|Standard (4-7)| T2["⚙️ Tier 2: Standard\n(GPT-4o-mini)"]:::tier
-    Router -->|Deep (8-10)| T3["🧠 Tier 3: Deep\n(Claude 3.5 Sonnet)"]:::tier
+    Router -->|Reflex (1-3)| T1["Tier 1: Reflex\n(Groq / Llama-3)"]:::tier
+    Router -->|Standard (4-7)| T2["Tier 2: Standard\n(GPT-4o-mini)"]:::tier
+    Router -->|Deep (8-10)| T3["Tier 3: Deep\n(Claude 3.5 Sonnet)"]:::tier
 
-    T1 -.->|Verification| AutoCheck{"🔍 Quality Check"}:::logic
-    AutoCheck -->|❌ Fail| T2
-    AutoCheck -->|✅ Pass| Output
+    T1 -.->|Verification| AutoCheck{"Quality Check"}:::logic
+    AutoCheck -->|Fail| T2
+    AutoCheck -->|Pass| Output
 
     T2 --> Output
-    T3 --> Output([("📤 Final Response")]):::user
+    T3 --> Output([("Final Response")]):::user
 ```
 
 The Oracle is fail-open: if Ollama is not running or times out, the router defaults to Standard tier. This ensures OpenSage never blocks your agent pipeline.
