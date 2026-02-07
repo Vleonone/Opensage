@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenSage Insight | Velonlabs</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-green: #39ff14;
+            --dark-green: #0d3b0d;
+            --bg-gray: #f0f0f0;
+            --pixel-font: 'VT323', monospace;
+        }
+
+        body {
+            background-color: var(--bg-gray);
+            font-family: var(--pixel-font);
+            color: #1a1a1a;
+            /* Scanline effect */
+            background-image: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            background-size: 100% 2px, 3px 100%;
+        }
+
+        .pixel-border {
+            border: 4px solid var(--neon-green);
+            box-shadow: 0 0 10px var(--neon-green), inset 0 0 10px var(--neon-green);
+            background-color: white;
+        }
+
+        .pixel-text {
+            font-family: var(--pixel-font);
+            text-transform: uppercase;
+        }
+
+        .logo-container {
+            font-size: 4rem;
+            letter-spacing: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            text-shadow: 2px 2px #ccc;
+        }
+
+        /* Custom Arrow Icon replacing 'E' */
+        .arrow-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--neon-green);
+            clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
+            display: inline-block;
+            margin-left: 10px;
+            box-shadow: 0 0 5px var(--neon-green);
+        }
+
+        .log-entry {
+            border: 2px solid var(--neon-green);
+            margin-bottom: 8px;
+            background: rgba(255, 255, 255, 0.95);
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            font-family: 'VT323', monospace;
+        }
+
+        .log-time {
+            background: var(--dark-green);
+            color: var(--neon-green);
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 2px solid var(--neon-green);
+        }
+
+        .log-content {
+            padding: 4px 8px;
+        }
+
+        .log-row {
+            display: flex;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .log-row:last-child {
+            border-bottom: none;
+        }
+
+        .log-label {
+            width: 80px;
+            border-right: 1px solid #ccc;
+            color: #666;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+
+<body class="h-screen flex flex-col p-8 bg-[url('https://www.transparenttextures.com/patterns/graphy.png')]">
+
+    <!-- SPLASH SCREEN (Pre-Installation View) -->
+    <div id="splash-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gray-100">
+        <div class="pixel-border p-12 flex flex-col items-center shadow-2xl bg-white relative overflow-hidden">
+            <!-- Decorative corner accents -->
+            <div class="absolute top-2 left-2 w-4 h-4 border-t-4 border-l-4 border-green-500"></div>
+            <div class="absolute top-2 right-2 w-4 h-4 border-t-4 border-r-4 border-green-500"></div>
+            <div class="absolute bottom-2 left-2 w-4 h-4 border-b-4 border-l-4 border-green-500"></div>
+            <div class="absolute bottom-2 right-2 w-4 h-4 border-b-4 border-r-4 border-green-500"></div>
+
+            <div class="text-sm tracking-widest text-gray-400 mb-4">VELONLABS DISTRIBUTED SYSTEMS</div>
+
+            <div class="logo-container mb-8 scale-150">
+                OFENSAG<span class="arrow-icon"></span>
+            </div>
+
+            <div class="space-y-2 text-center mb-8 font-mono text-gray-500">
+                <div>CORE: <span class="text-green-600 font-bold">DETECTED</span></div>
+                <div>ORACLE: <span class="text-green-600 font-bold">ONLINE</span></div>
+                <div>PROTOCOL: <span class="text-green-600 font-bold">AS2 READY</span></div>
+            </div>
+
+            <button onclick="enterSystem()"
+                class="px-8 py-3 bg-white border-4 border-green-500 text-green-600 font-bold text-2xl hover:bg-green-500 hover:text-white transition-colors tracking-widest shadow-[4px_4px_0px_0px_rgba(57,255,20,1)] hover:shadow-none translate-x-[0px] translate-y-[0px] hover:translate-x-[4px] hover:translate-y-[4px]">
+                INITIALIZE_SYSTEM()
+            </button>
+        </div>
+        <div class="mt-8 text-gray-400 text-sm">v1.0.0 | OPEN SOURCE COGNITION</div>
+    </div>
+
+    <script>
+        function enterSystem() {
+            const splash = document.getElementById('splash-screen');
+            splash.style.transition = "opacity 0.5s ease";
+            splash.style.opacity = "0";
+            setTimeout(() => splash.remove(), 500);
+        }
+    </script>
+
+    <!-- Header -->
+    <header class="flex justify-between items-center mb-8">
+        <div class="pixel-border px-8 py-4 w-full flex justify-between items-center bg-white/90">
+            <!-- Logo: OPENSAG + Icon -->
+            <div class="logo-container">
+                OFENSAG<span class="arrow-icon"></span>
+            </div>
+
+            <div class="text-right">
+                <div class="text-2xl text-green-600 font-bold pixel-text">Velonlabs Cognitive Kernel</div>
+                <div class="text-sm bg-black text-white px-2 mt-1 inline-block">SYSTEM STATUS: ONLINE</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 grid grid-cols-3 gap-8">
+
+        <!-- Neural Feed (Live Logs) -->
+        <div class="col-span-2 pixel-border p-4 h-full overflow-hidden flex flex-col">
+            <h2 class="text-3xl mb-4 border-b-4 border-green-400 pb-2 flex justify-between items-center">
+                <span>>> LIVE NEURAL FEED</span>
+                <span class="text-sm border border-green-500 px-2 rounded-full animate-pulse">REC ●</span>
+            </h2>
+            <div id="log-container" class="flex-1 overflow-y-auto font-mono text-lg space-y-2 pr-2">
+                <!-- Logs will appear here -->
+                <div class="log-entry text-gray-400 text-center py-8">Waiting for cognitive signals...</div>
+            </div>
+        </div>
+
+        <!-- Metrics Panel -->
+        <div class="pixel-border p-4 h-full flex flex-col space-y-6 bg-gray-50">
+            <div class="text-center border-b-2 border-gray-300 pb-4">
+                <div class="text-6xl font-bold text-green-600" id="tx-count">0</div>
+                <div class="text-xl text-gray-500">REQUESTS PROCESSED</div>
+            </div>
+
+            <div>
+                <h3 class="text-xl mb-2">LAST COMPLEXITY SCORE</h3>
+                <div class="gauge-bar-bg relative">
+                    <div id="complexity-bar" class="gauge-bar-fill" style="width: 0%"></div>
+                    <span id="complexity-val"
+                        class="absolute inset-0 flex items-center justify-center font-bold">0/10</span>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-xl mb-2">DOMAIN DISTRIBUTION</h3>
+                <div id="domain-stats" class="space-y-1 text-lg">
+                    <!-- JS will pop this -->
+                </div>
+            </div>
+
+            <div class="mt-auto pt-4 border-t-2 border-gray-300 text-center">
+                <div class="text-gray-400 text-sm">SECURE CONNECTION</div>
+                <div class="text-2xl font-bold text-green-600 mt-2">Aeonsage.org</div>
+                <div class="text-xs text-gray-400 mt-1 pixel-text">AS2 PROTOCOL ACTIVE</div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const socket = io();
+        let requestCount = 0;
+        const logContainer = document.getElementById('log-container');
+        const countDisplay = document.getElementById('tx-count');
+        const complexityBar = document.getElementById('complexity-bar');
+        const complexityVal = document.getElementById('complexity-val');
+
+        function addLog(data) {
+            requestCount++;
+            countDisplay.innerText = requestCount;
+
+            // Remove placeholder
+            if (requestCount === 1) logContainer.innerHTML = '';
+
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+
+            const timestamp = new Date().toLocaleTimeString();
+
+            let tierColor = 'text-gray-600';
+            if (data.tier === 'reflex') tierColor = 'text-green-600';
+            if (data.tier === 'standard') tierColor = 'text-blue-600';
+            if (data.tier === 'deep') tierColor = 'text-purple-600';
+
+            const complexity = data.judgment?.complexity || '?';
+
+            entry.innerHTML = `
+                <div class="log-time text-sm">
+                    ${timestamp}
+                </div>
+                <div class="log-content">
+                    <div class="log-row">
+                        <span class="log-label">PROMPT</span>
+                        <span class="text-gray-800 break-all">"${data.prompt}"</span>
+                    </div>
+                    <div class="log-row">
+                        <span class="log-label">TIER</span>
+                        <span class="tier-badge">${data.tier.toUpperCase()}</span>
+                    </div>
+                    <div class="log-row">
+                        <span class="log-label">ROUTE</span>
+                        <span class="${tierColor} font-bold">${data.model}</span>
+                    </div>
+                    <div class="log-row">
+                        <span class="log-label">SCORE</span>
+                        <span>${complexity}/10</span>
+                    </div>
+                </div>
+            `;
+
+            // Auto scroll
+            logContainer.insertBefore(entry, logContainer.firstChild);
+
+            // Update Metrics (unchanged logic)
+            if (data.judgment) {
+                const score = data.judgment.complexity;
+                complexityBar.style.width = `${score * 10}%`;
+                complexityVal.innerText = `${score}/10`;
+
+                if (score <= 3) complexityBar.style.backgroundColor = '#39ff14';
+                else if (score <= 7) complexityBar.style.backgroundColor = '#00bfff';
+                else complexityBar.style.backgroundColor = '#a855f7';
+            }
+        }
+
+        socket.on('route-event', (data) => {
+            console.log("Event received:", data);
+            addLog(data);
+        });
+    </script>
+</body>
+
+</html>

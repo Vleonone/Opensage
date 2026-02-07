@@ -9,7 +9,8 @@
         "build": "tsc",
         "test": "echo \"Error: no test specified\" && exit 1",
         "prepare": "npm run build",
-        "setup": "ollama pull qwen2.5:0.5b"
+        "setup": "ollama pull qwen2.5:0.5b",
+        "gui": "node dist/tui_demo.js"
     },
     "keywords": [
         "llm",
@@ -23,10 +24,15 @@
     "author": "AeonSage Team",
     "license": "MIT",
     "dependencies": {
+        "chalk": "^4.1.2",
+        "express": "^5.2.1",
+        "socket.io": "^4.8.3",
         "zod": "^3.22.0"
     },
     "devDependencies": {
-        "typescript": "^5.0.0",
-        "@types/node": "^20.0.0"
+        "@types/express": "^5.0.6",
+        "@types/node": "^20.19.32",
+        "@types/socket.io": "^3.0.1",
+        "typescript": "^5.0.0"
     }
 }

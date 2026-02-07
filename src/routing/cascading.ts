@@ -11,10 +11,10 @@ export enum ModelTier {
 export const TIER_MODEL_MAP = {
     // Tier 1: Instant & Cheap via OpenRouter/Groq
     [ModelTier.REFLEX]: ["openrouter:groq/llama-3-8b-8192", "openrouter:google/gemma-7b-it", "ollama:qwen2.5:0.5b"],
-    // Tier 2: Standard Balance
-    [ModelTier.STANDARD]: ["gpt-4o-mini", "claude-3-haiku", "gemini-flash"],
-    // Tier 3: Deep Reasoning
-    [ModelTier.DEEP]: ["claude-3-5-sonnet-20240620", "gpt-4o", "openrouter:anthropic/claude-3.5-sonnet"],
+    // Tier 2: Standard Balance (OpenRouter)
+    [ModelTier.STANDARD]: ["openrouter:openai/gpt-4o-mini", "openrouter:anthropic/claude-3-haiku", "openrouter:google/gemini-flash-1.5"],
+    // Tier 3: Deep Reasoning (OpenRouter)
+    [ModelTier.DEEP]: ["openrouter:anthropic/claude-3.5-sonnet", "openrouter:openai/gpt-4o"],
 };
 
 export class CascadingRouter {

@@ -1,5 +1,6 @@
 import { OracleEngine, OracleJudgment } from "./oracle/engine.js";
 import { CascadingRouter, ModelTier, TIER_MODEL_MAP } from "./routing/cascading.js";
+import { insightServer } from "./ui/server.js";
 
 export class CognitiveRouter {
     private oracle: OracleEngine;
@@ -49,11 +50,19 @@ export class CognitiveRouter {
             if (modelFullId.startsWith("gemini")) provider = "google";
         }
 
-        return {
+        const decision = {
             provider,
             model,
             tier,
             judgment,
         };
+
+        // Emit to GUI if active
+        insightServer.broadcast("route-event", {
+            prompt,
+            ...decision
+        });
+
+        return decision;
     }
 }
