@@ -57,12 +57,13 @@ console.log(result);
 ## 🧠 Architecture
 
 For a deep dive into the routing logic and Oracle mechanism, see the [Detailed Design Document](./docs/design.md).
+Curious how we compare to Regex routers? See [OpenSage vs ClawRouter](./docs/comparison.md).
 
 ```mermaid
 graph TD
-    User[Input] --> Oracle[Local Oracle (SLM)]
-    Oracle -->|Score < 4| Tier1[Groq / Llama 3]
-    Oracle -->|Score > 7| Tier3[Claude 3.5 Sonnet]
+    User["Input"] --> Oracle["Local Oracle (SLM)"]
+    Oracle -->|"Score < 4"| Tier1["Groq / Llama 3"]
+    Oracle -->|"Score > 7"| Tier3["Claude 3.5 Sonnet"]
 ```
 
 ## 🤝 Part of the AeonSage Ecosystem
