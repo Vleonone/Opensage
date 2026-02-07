@@ -56,6 +56,8 @@ console.log(result);
 
 ## 🧠 Architecture
 
+For a deep dive into the routing logic and Oracle mechanism, see the [Detailed Design Document](./docs/design.md).
+
 ```mermaid
 graph TD
     User[Input] --> Oracle[Local Oracle (SLM)]
