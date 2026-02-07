@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/Logo.svg" width="180" alt="OpenSage Logo">
+<img src="assets/OpenSage%20banner.svg" width="100%" alt="OpenSage Banner">
 
 <h3>LLM Agent 的认知路由核心</h3>
 
