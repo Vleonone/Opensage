@@ -34,16 +34,5 @@ These are **independent, industry-standard projects** that OpenSage natively int
 
 ## Example: The "Super-Agent" Architecture
 
-```mermaid
-graph TD
-    User -->|Input| OpenSage
-    OpenSage -->|Context?| Mem0[Memory]
-    OpenSage -->|Facts?| Chroma[Local RAG]
-    
-    OpenSage -->|Decision| Router
-    
-    Router -->|Simple| Groq
-    Router -->|Complex| GPT4
-    
-    GPT4 -->|Action| MCP[MCP Tools]
-```
+![OpenSage Banner](../assets/Opensage_banner.svg)
+![OpenSage Flow](../assets/Flow.png)

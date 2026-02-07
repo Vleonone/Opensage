@@ -17,8 +17,8 @@
 </p>
 
 [![License](https://img.shields.io/badge/License-MIT-gray?style=flat-square)](./LICENSE)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=flat-square&logo=typescript&logoColor=white)](./tsconfig.json)
-[![Node](https://img.shields.io/badge/Node.js-≥18-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-00B51A?style=flat-square&logo=typescript&logoColor=white)](./tsconfig.json)
+[![Node](https://img.shields.io/badge/Node.js-≥18-00B51A?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org)
 
 </div>
 

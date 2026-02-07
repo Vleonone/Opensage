@@ -23,33 +23,8 @@ The Oracle analyzes prompts for:
 
 ### 2.3 Visual Architecture (Mermaid)
 
-graph TD
-    %% White + Green Theme
-    classDef user fill:#ffffff,stroke:#2e7d32,stroke-width:2px,color:#2e7d32,rx:10,ry:10;
-    classDef core fill:#2e7d32,stroke:#1b5e20,stroke-width:2px,color:#ffffff,rx:10,ry:10;
-    classDef tier fill:#e8f5e9,stroke:#4caf50,stroke-width:2px,color:#1b5e20,rx:5,ry:5;
-    classDef logic fill:#ffffff,stroke:#43a047,stroke-width:2px,color:#2e7d32,stroke-dasharray: 5 5,rx:5,ry:5;
-
-    User(["👤 User Prompt"]):::user --> Ingest
-    
-    subgraph Velonlabs ["🌐 Velonlabs Cognitive Kernel"]
-        direction TB
-        Ingest[("📥 Ingestion")]:::logic --> Oracle
-        Oracle{{"🔮 Local Oracle\n(qwen2.5:0.5b)"}}:::core
-        
-        Oracle == Analysis ==> Router(("⚡ Synapse\nrouter")):::logic
-    end
-
-    Router -->|Reflex (1-3)| T1["⚡ Tier 1: Reflex\n(Groq / Llama-3)"]:::tier
-    Router -->|Standard (4-7)| T2["⚙️ Tier 2: Standard\n(GPT-4o-mini)"]:::tier
-    Router -->|Deep (8-10)| T3["🧠 Tier 3: Deep\n(Claude 3.5 Sonnet)"]:::tier
-
-    T1 -.->|Verification| AutoCheck{"🔍 Quality Check"}:::logic
-    AutoCheck -->|❌ Fail| T2
-    AutoCheck -->|✅ Pass| Output
-
-    T2 --> Output
-    T3 --> Output([("📤 Final Response")]):::user
+![OpenSage Banner](../assets/Opensage_banner.svg)
+![OpenSage Flow](../assets/Flow.png)
 
 ### 2.4 Optimistic Cascading (The Routing Logic)
 
