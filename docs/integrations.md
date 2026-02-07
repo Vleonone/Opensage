@@ -4,28 +4,28 @@ OpenSage is designed as a **Modular Orchestrator**. It doesn't force you to use 
 
 These are **independent, industry-standard projects** that OpenSage natively integrates with to form a "Super-Agent":
 
-## 1. Memory (The Hippocampus)
+## 1. Memory (The Hippocampus) ![Mem0](https://img.shields.io/badge/Mem0-Long_Term_Memory-000000?style=flat-square)
 *Give your router long-term context.*
 
 *   **[Mem0](https://github.com/mem0ai/mem0)** (Highly Recommended)
     *   **Why**: Self-improving memory that learns user preferences over time.
     *   **Synergy**: OpenSage can route based on *who* the user is (e.g., "User is a Junior Dev" -> Route to explanatory model).
 
-## 2. Tools & Data (The Hands)
+## 2. Tools & Data (The Hands) ![MCP](https://img.shields.io/badge/MCP-Standard_Protocol-000000?style=flat-square)
 *Standardize how your agent connects to the world.*
 
 *   **[Model Context Protocol (MCP)](https://modelcontextprotocol.io/)**
     *   **Why**: The new standard for connecting AI to data sources (Files, GitHub, Slack).
     *   **Synergy**: Use OpenSage to decide *which* MCP server to query before routing.
 
-## 3. RAG / Vector Store (The Library)
+## 3. RAG / Vector Store (The Library) ![Chroma](https://img.shields.io/badge/Chroma-Local_Vector_DB-E23F36?style=flat-square)
 *Give your router access to your private docs.*
 
 *   **[ChromaDB](https://www.trychroma.com/)** (Local)
     *   **Why**: Open-source, runs locally, fits the "Sovereign" ethos perfectly.
     *   **Synergy**: Query Chroma *inside* the Oracle Phase to route based on document availability.
 
-## 4. Observability (The Eyes)
+## 4. Observability (The Eyes) ![Helicone](https://img.shields.io/badge/Helicone-Observability-000000?style=flat-square)
 *See why the router made a decision.*
 
 *   **[Helicone](https://www.helicone.ai/)**
