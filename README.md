@@ -31,7 +31,11 @@
 
 <br>
 
----
+<div align="center">
+  
+  ⚡ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ⚡
+
+</div>
 
 ## 1. Overview
 
@@ -54,9 +58,13 @@ The current release (`v1.0.0`) includes the core routing logic, local oracle int
 | **Provider Parsing** | ✅ Ready | Intelligent recursive splitting of provider strings. |
 | **Verification** | 🚧 Planned | Automated output quality checks and retry logic. |
 
----
+<div align="center">
+  
+  ⚡ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ⚡
 
-## 2. Architecture & Workflow
+</div>
+
+## 2. How It Works
 
 OpenSage operates a multi-stage pipeline designed to minimize latency while maximizing routing accuracy. The following diagram illustrates the critical path from user input to final response.
 
@@ -94,7 +102,11 @@ OpenSage operates a multi-stage pipeline designed to minimize latency while maxi
 
 **Workflow Safety**: The system is designed to be "fail-open". If the local Ollama instance is unreachable or times out, the router automatically defaults to the **Standard Tier**, ensuring that the agent pipeline is never blocked by a routing failure.
 
----
+<div align="center">
+  
+  ⚡ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ⚡
+
+</div>
 
 ## 3. Cost Efficiency Analysis
 
@@ -103,14 +115,34 @@ The primary economic driver for OpenSage is the "80/20 rule" of LLM traffic: a s
 By dynamically routing simple queries to free or low-cost models, organizations can achieve substantial cost reductions without compromising user experience on complex tasks.
 
 | Request Type | Typical Volume | Traditional Cost Basis | OpenSage Optimized Cost |
-| :--- | :---: | :--- | :--- |
+| :<div align="center">
+  
+  ⚡ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ⚡
+
+</div> | :<div align="center">
+  
+  ⚡ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ⚡
+
+</div>: | :<div align="center">
+  
+  ⚡ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ⚡
+
+</div> | :<div align="center">
+  
+  ⚡ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ⚡
+
+</div> |
 | **Conversational / Chit-chat** | ~30% | $0.03 / req (GPT-4) | **$0.00** (Local/Groq) |
 | **Standard Logic / Coding** | ~50% | $0.03 / req (GPT-4) | **$0.0002** (Llama 3) |
 | **Deep Reasoning** | ~20% | $0.03 / req (GPT-4) | **$0.03** (Claude 3.5) |
 
 > **projected Savings**: Up to **80%** reduction in API costs for mixed-workload institutional deployments.
 
----
+<div align="center">
+  
+  ⚡ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ⚡
+
+</div>
 
 ## 4. Installation & Setup
 
@@ -133,7 +165,11 @@ cd Opensage
 npm install
 ```
 
----
+<div align="center">
+  
+  ⚡ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ⚡
+
+</div>
 
 ## 5. Usage Guide
 
@@ -178,7 +214,11 @@ npm run build
 node dist/tui_demo.js
 ```
 
----
+<div align="center">
+  
+  ⚡ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ⚡
+
+</div>
 
 ## 6. Framework Integration
 
@@ -203,7 +243,11 @@ async function handleRequest(prompt: string) {
 }
 ```
 
----
+<div align="center">
+  
+  ⚡ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ⚡
+
+</div>
 
 ## 7. Configuration & Roadmap
 
@@ -224,7 +268,11 @@ export const TIER_MODEL_MAP = {
 *   **Telemetry**: Built-in token accounting and real-time cost visualization.
 *   **Python SDK**: Native Python port for integration with PyTorch/TensorFlow pipelines.
 
----
+<div align="center">
+  
+  ⚡ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ⚡
+
+</div>
 
 ## 8. Project Structure
 
@@ -242,7 +290,11 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md). We welcome pull requests for:
 - Oracle model benchmarks (Phi-3, Gemma-2b)
 - Framework integration adapters (LangChainJS, Vercel AI SDK)
 
----
+<div align="center">
+  
+  ⚡ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ⚡
+
+</div>
 
 ## ● Ecosystem
 
@@ -252,7 +304,11 @@ OpenSage is the open-source routing core of [AeonsagePro](https://github.com/vel
 - [OpenRouter](https://openrouter.ai) — Unified model marketplace
 - [Groq](https://groq.com) — Sub-second inference hardware
 
----
+<div align="center">
+  
+  ⚡ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ⚡
+
+</div>
 
 ## ● License
 
