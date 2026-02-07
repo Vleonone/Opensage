@@ -57,7 +57,7 @@ pnpm add opensage
 ```
 
 > **Note**: You must have a Local Oracle running.
-> 👉 **[Read the Setup Guide](./docs/setup.md)** to install Ollama and the required model.
+> **[Read the Setup Guide](./docs/setup.md)** to install Ollama and the required model.
 
 ## Quick Start
 
@@ -147,7 +147,7 @@ OpenSage is the open-source core of **AeonSage Pro**. It relies on these giants:
 *   **[OpenRouter](https://openrouter.ai)**: The marketplace for unified model access.
 *   **[Groq](https://groq.com)**: The hardware enabling sub-second inference.
 
-## 🔌 For Gateway Builders
+## For Gateway Builders
 
 Building an **AI Gateway** or **LLM Proxy**?
 OpenSage is designed to be the **Intelligent Kernel** inside your infrastructure.
@@ -158,7 +158,7 @@ OpenSage is designed to be the **Intelligent Kernel** inside your infrastructure
 
 > **Call for PRs**: converting `OpenSage` into a [LangGraph](https://langchain-ai.github.io/langgraph/) node or [Kong Plugin](https://konghq.com)? We want to merge it!
 
-## 🤝 Contributing
+## Contributing
 
 **We want this to be the universal router for everyone.**
 Whether you use Next.js, Python, or Go - the logic should be shared.
@@ -166,7 +166,7 @@ Whether you use Next.js, Python, or Go - the logic should be shared.
 *   **JavaScript/TypeScript**: Ready today.
 *   **Python/Go**: Contributors needed!
 
-👉 **[Read the Contribution Guide](./CONTRIBUTING.md)** to send your first PR.
+**[Read the Contribution Guide](./CONTRIBUTING.md)** to send your first PR.
 
 ## License
 
