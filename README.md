@@ -1,8 +1,6 @@
 <div align="center">
 
-<img src="./assets/aeonsage_Banner.svg" alt="OPENSAGE" width="100%">
-
-# OPENSAGE: THE COGNITIVE KERNEL
+<img src="./assets/aeonsage_banner.svg" alt="OPENSAGE" width="100%">
 
 **The Reference Implementation of Sovereign Intelligence**
 
@@ -14,6 +12,7 @@
 </p>
 
 [![License](https://img.shields.io/badge/License-MIT-gray?style=flat-square)](./LICENSE)
+[![VDID](https://img.shields.io/badge/VDID-Verified_Identity-E8471C?style=flat-square&logo=fingerprint&logoColor=white)](docs/sovereign-kernel.md)
 
 </div>
 
