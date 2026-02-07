@@ -8,7 +8,8 @@
     "scripts": {
         "build": "tsc",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "prepare": "npm run build"
+        "prepare": "npm run build",
+        "setup": "ollama pull qwen2.5:0.5b"
     },
     "keywords": [
         "llm",
