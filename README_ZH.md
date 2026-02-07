@@ -16,16 +16,23 @@
   <a href="README.md">English Doc</a>
 </p>
 
-[![License](https://img.shields.io/badge/License-Hybrid_Apache_2.0_&_OSCL-00B51A?style=flat-square)](./LICENSE)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-00B51A?style=flat-square&logo=typescript&logoColor=white)](./tsconfig.json)
-[![Node](https://img.shields.io/badge/Node.js-≥18-00B51A?style=flat-square&logo=nodedotjs&logoColor=white)](https://nodejs.org)
-[![Ollama](https://img.shields.io/badge/Ollama-Required-00B51A?style=flat-square&logo=ollama&logoColor=white)](https://ollama.com)
+<div align="center">
 
-### 技术栈
+<!-- Project Info -->
+[![License](https://img.shields.io/badge/License-Hybrid-00B51A?style=for-the-badge&labelColor=232323)](./LICENSE)
+[![Status](https://img.shields.io/badge/Status-Alpha-00B51A?style=for-the-badge&labelColor=232323)](./)
 
-[![Express](https://img.shields.io/badge/Express-00B51A?style=flat-square&logo=express&logoColor=white)](https://expressjs.com)
-[![Socket.io](https://img.shields.io/badge/Socket.io-00B51A?style=flat-square&logo=socketdotio&logoColor=white)](https://socket.io)
-[![Zod](https://img.shields.io/badge/Zod-00B51A?style=flat-square&logo=zod&logoColor=white)](https://zod.dev)
+<!-- Core Stack -->
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-00B51A?style=flat-square&logo=typescript&logoColor=white&labelColor=232323)](./tsconfig.json)
+[![Node](https://img.shields.io/badge/Node.js-≥18-00B51A?style=flat-square&logo=nodedotjs&logoColor=white&labelColor=232323)](https://nodejs.org)
+[![Express](https://img.shields.io/badge/Express-Framework-00B51A?style=flat-square&logo=express&logoColor=white&labelColor=232323)](https://expressjs.com)
+
+<!-- Integrations -->
+[![Ollama](https://img.shields.io/badge/Ollama-Required-00B51A?style=flat-square&logo=ollama&logoColor=white&labelColor=232323)](https://ollama.com)
+[![Socket.io](https://img.shields.io/badge/Socket.io-Realtime-00B51A?style=flat-square&logo=socketdotio&logoColor=white&labelColor=232323)](https://socket.io)
+[![Zod](https://img.shields.io/badge/Zod-Validation-00B51A?style=flat-square&logo=zod&logoColor=white&labelColor=232323)](https://zod.dev)
+
+</div>
 
 </div>
 
