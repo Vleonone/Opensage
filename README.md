@@ -56,6 +56,9 @@ npm install opensage
 pnpm add opensage
 ```
 
+> **Note**: You must have a Local Oracle running.
+> 👉 **[Read the Setup Guide](./docs/setup.md)** to install Ollama and the required model.
+
 ## Quick Start
 
 ```typescript
