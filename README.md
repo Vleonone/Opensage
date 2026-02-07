@@ -147,6 +147,17 @@ OpenSage is the open-source core of **AeonSage Pro**. It relies on these giants:
 *   **[OpenRouter](https://openrouter.ai)**: The marketplace for unified model access.
 *   **[Groq](https://groq.com)**: The hardware enabling sub-second inference.
 
+## 🔌 For Gateway Builders
+
+Building an **AI Gateway** or **LLM Proxy**?
+OpenSage is designed to be the **Intelligent Kernel** inside your infrastructure.
+
+*   **LangChain**: Use OpenSage as a custom `Runnable` router.
+*   **Vercel AI SDK**: Plug into `generateText` for dynamic model selection.
+*   **Custom Gateways**: Import `CognitiveRouter` to add intelligence to your proxy.
+
+> **Call for PRs**: converting `OpenSage` into a [LangGraph](https://langchain-ai.github.io/langgraph/) node or [Kong Plugin](https://konghq.com)? We want to merge it!
+
 ## 🤝 Contributing
 
 **We want this to be the universal router for everyone.**
