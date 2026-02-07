@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/opensage.svg" width="100%" alt="OpenSage Banner">
+<img src="assets/Opensage_banner.svg" width="100%" alt="OpenSage Banner">
 
 <h3>The Cognitive Routing Core for LLM Agents</h3>
 
