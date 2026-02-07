@@ -139,16 +139,22 @@ sequenceDiagram
 *See [Detailed Architecture](./docs/design.md) for deep dive.*
 *See [Comparisons](./docs/comparison.md) for OpenSage vs Regex Routers.*
 
-## Ecosystem & Credits
+## Ecosystem & Stack
 
-OpenSage is the open-source core of **AeonSage Pro**. It relies on these giants:
+OpenSage acts as the **Connective Tissue** between these top-tier technologies.
 
-*   **[Ollama](https://ollama.com)**: The engine for local inference.
-*   **[OpenRouter](https://openrouter.ai)**: The marketplace for unified model access.
-*   **[OpenRouter](https://openrouter.ai)**: The marketplace for unified model access.
-*   **[Groq](https://groq.com)**: The hardware enabling sub-second inference.
+### Core Engine
+![Ollama](https://img.shields.io/badge/Ollama-Run_Locally-000000?style=for-the-badge&logo=ollama&logoColor=white)
+![OpenRouter](https://img.shields.io/badge/OpenRouter-Unified_API-743EC7?style=for-the-badge&logo=openai&logoColor=white)
+![Groq](https://img.shields.io/badge/Groq-LPU_Inference-F55036?style=for-the-badge&logo=fastapi&logoColor=white)
 
-> 🧩 **Want to make it smarter?** Check out the **[Intelligence Stack](./docs/integrations.md)** (Memory, RAG, Tools).
+### Recommended Integrations
+![Mem0](https://img.shields.io/badge/Mem0-Long_Term_Memory-000000?style=for-the-badge)
+![LangChain](https://img.shields.io/badge/LangChain-Orchestration-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)
+![Chroma](https://img.shields.io/badge/Chroma-Vector_DB-E23F36?style=for-the-badge)
+![Vercel](https://img.shields.io/badge/Vercel-AI_SDK-000000?style=for-the-badge&logo=vercel&logoColor=white)
+
+> 🧩 **Make it smarter**: Check out the **[Intelligence Stack](./docs/integrations.md)** guide.
 
 ## For Gateway Builders
 
