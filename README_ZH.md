@@ -16,7 +16,7 @@
   <a href="README.md">English Doc</a>
 </p>
 
-[![License](https://img.shields.io/badge/License-MIT-gray?style=flat-square)](./LICENSE)
+[![License](https://img.shields.io/badge/License-Personal_Use_Only-00B51A?style=flat-square)](./LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-00B51A?style=flat-square&logo=typescript&logoColor=white)](./tsconfig.json)
 [![Node](https://img.shields.io/badge/Node.js-≥18-00B51A?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org)
 
