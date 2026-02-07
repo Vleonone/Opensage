@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/Opensage_banner.svg" width="100%" alt="OpenSage Banner">
+<img src="assets/Logo.svg" width="100%" alt="OpenSage Logo">
 
 <h3>The Cognitive Routing Core for LLM Agents</h3>
 
@@ -60,37 +60,8 @@ The current release (`v1.0.0`) includes the core routing logic, local oracle int
 
 OpenSage operates a multi-stage pipeline designed to minimize latency while maximizing routing accuracy. The following diagram illustrates the critical path from user input to final response.
 
-```mermaid
-   graph TD
-    %% Cyber-Sage Theme
-    classDef user fill:#000000,stroke:#66ff66,stroke-width:2px,color:#ffffff,rx:10,ry:10;
-    classDef core fill:#000000,stroke:#39ff14,stroke-width:2px,color:#ffffff,rx:10,ry:10;
-    classDef tier fill:#000000,stroke:#66ff66,stroke-width:2px,color:#ffffff,rx:5,ry:5;
-    classDef logic fill:#000000,stroke:#99ff99,stroke-width:2px,color:#ffffff,stroke-dasharray: 5 5,rx:5,ry:5;
-    linkStyle default stroke:#66ff66,stroke-width:2px;
-
-    User(["User Prompt"]):::user --> Ingest
-    
-    subgraph Velonlabs ["Velonlabs Cognitive Kernel"]
-        direction TB
-        style Velonlabs fill:#111111,stroke:#66ff66,stroke-width:2px,color:#66ff66
-        Ingest[("Ingestion")]:::logic --> Oracle
-        Oracle{{"Local Oracle\n(qwen2.5:0.5b)"}}:::core
-        
-        Oracle == Analysis ==> Router(("Synapse\nrouter")):::logic
-    end
-
-    Router -->|Reflex (1-3)| T1["Tier 1: Reflex\n(Groq / Llama-3)"]:::tier
-    Router -->|Standard (4-7)| T2["Tier 2: Standard\n(GPT-4o-mini)"]:::tier
-    Router -->|Deep (8-10)| T3["Tier 3: Deep\n(Claude 3.5 Sonnet)"]:::tier
-
-    T1 -.->|Verification| AutoCheck{"Quality Check"}:::logic
-    AutoCheck -->|Fail| T2
-    AutoCheck -->|Pass| Output
-    
-    T2 --> Output
-    T3 --> Output([("Final Response")]):::user
-```
+![OpenSage Banner](assets/Opensage_banner.svg)
+![OpenSage Flow](assets/Flow.png)
 
 **Workflow Safety**: The system is designed to be "fail-open". If the local Ollama instance is unreachable or times out, the router automatically defaults to the **Standard Tier**, ensuring that the agent pipeline is never blocked by a routing failure.
 

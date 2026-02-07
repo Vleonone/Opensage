@@ -1,251 +1,169 @@
 <div align="center">
 
-<img src="assets/Opensage_banner.svg" width="100%" alt="OpenSage Banner">
+<img src="assets/Logo.svg" width="100%" alt="OpenSage Logo">
 
-<h3>自主智能体的认知神经系统</h3>
+<h3>LLM Agent 的认知路由核心</h3>
 
 <p>
-  <strong>意图感知 • 分层路由 • 故障逃逸</strong>
+  <strong>意图分析 -- 分级模型选择 -- 故障开放设计</strong>
 </p>
 
 <p>
-  <a href="docs/design.md">技术设计</a> |
+  <a href="docs/design.md">设计文档</a> |
   <a href="docs/setup.md">安装指南</a> |
-  <a href="docs/comparison.md">方案对比</a> |
-  <a href="docs/integrations.md">集成文档</a> |
+  <a href="docs/comparison.md">竞品对比</a> |
+  <a href="docs/integrations.md">生态集成</a> |
   <a href="README.md">English Doc</a>
 </p>
 
-[![Version](https://img.shields.io/badge/Version-1.0.0-39ff14?style=flat-square&labelColor=c2c2c2)](./package.json)
-[![License](https://img.shields.io/badge/License-MIT-39ff14?style=flat-square&labelColor=c2c2c2)](./LICENSE)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-39ff14?style=flat-square&logo=typescript&logoColor=white&labelColor=c2c2c2)](./tsconfig.json)
-[![Node](https://img.shields.io/badge/Node.js-18+-39ff14?style=flat-square&logo=node.js&logoColor=white&labelColor=c2c2c2)](https://nodejs.org)
-[![Ollama](https://img.shields.io/badge/Ollama-Required-39ff14?style=flat-square&labelColor=c2c2c2)](https://ollama.com)
-[![OpenRouter](https://img.shields.io/badge/OpenRouter-Compatible-39ff14?style=flat-square&labelColor=c2c2c2)](https://openrouter.ai)
+[![License](https://img.shields.io/badge/License-MIT-gray?style=flat-square)](./LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=flat-square&logo=typescript&logoColor=white)](./tsconfig.json)
+[![Node](https://img.shields.io/badge/Node.js-≥18-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org)
 
 </div>
 
-<br>
+---
 
-<img src="assets/opensage_demo.gif" width="100%" alt="OpenSage Demo TUI">
+## OpenSage 是什么
 
-<br>
+OpenSage 是一个**路由决策引擎**。它本身不执行 LLM 调用，而是告诉你的 Agent **"对于这句话，应该用哪个模型"**。
 
+它的核心理念是：**不要盲目地把所有请求都发给昂贵的 GPT-4。** 
 
+OpenSage 会运行一个本地的微型模型 ("Oracle") 来语义分析每条用户指令的意图和复杂度，然后返回一个结构化的路由决策（包含推荐的厂商、模型ID、分级）。
 
-## 1. 项目概述 (Overview)
+**当前版本已实现的功能 (~214 行 TypeScript):**
 
-OpenSage 是一个专为 LLM 智能体设计的**认知路由引擎**。与传统的静态网关不同，OpenSage 在执行任何模型调用之前，会先对用户的 Prompt 进行**语义意图分析**。
+- **Oracle 引擎** — 调用本地 Ollama (qwen2.5:0.5b) 对 Prompt 进行 1-10 级复杂度评分、领域分类。拥有严格的 500ms 超时控制。
+- **分级决策** — 将 Oracle 评分映射为三个层级：Reflex (1-3分), Standard (4-7分), Deep (8-10分)。
+- **模型解析** — 针对层级返回具体的模型 ID（如 `openrouter:groq/llama-3-8b-8192`）。
+- **故障开放 (Fail-Open)** — 如果本地 Oracle 宕机或超时，系统会自动降级到 Standard 层，确保业务不中断。
 
-它通过一个本地运行的轻量级“神谕”模型（Local Oracle），智能判断任务的复杂度与领域，从而将请求分发给最合适的模型。这种机制在保证任务完成质量的前提下，显著降低了 API 调用成本并提升了响应速度。
+**当前版本尚未实现的功能:**
 
-**核心能力：**
-*   **本地神谕引擎**：利用 `qwen2.5:0.5b` 对 Prompt 进行 1-10 级的复杂度评分与领域分类。
-*   **三级分层路由**：根据评分将任务分发至反射层（Reflex）、标准层（Standard）或深度层（Deep）。
-*   **故障逃逸设计**：Fail-Open 架构，确保在本地模型无响应时自动降级到云端标准模型，保障业务连续性。
+- 自动验证输出并重试（设计文档中的 "Cascading Retry"）
+- 实际的模型推理执行（OpenSage 仅返回决策，需配合 Agent 框架使用）
+- 动态模型可用性检测
+- CLI 工具与插件系统
+- 成本统计
 
-### 1.1 当前实现状态
-当前版本 (`v1.0.0`) 已包含完整的核心路由逻辑、本地 Ollama 集成以及用于监控的终端 UI。
+---
 
-| 模块 | 状态 | 说明 |
-| :--- | :--- | :--- |
-| **Oracle 引擎** | ✅ 就绪 | 支持 500ms 超时熔断的本地分类器。 |
-| **分层决策** | ✅ 就绪 | 定义了精确的分层映射逻辑。 |
-| **模型解析** | ✅ 就绪 | 支持 `provider:model` 格式的智能解析。 |
-| **自动反思** | 🚧 计划中 | 正在开发输出结果的自动化质量验证与重试机制。 |
+## 工作原理
 
-
-
-## 2. How It Works (运行机制)
-
-OpenSage 采用流水线式架构，确保从输入到决策的极低延迟。下图展示了数据流的全过程：
-
-```mermaid
-graph TD
-    %% Cyber-Sage Theme
-    classDef user fill:#000000,stroke:#66ff66,stroke-width:2px,color:#ffffff,rx:10,ry:10;
-    classDef core fill:#000000,stroke:#39ff14,stroke-width:2px,color:#ffffff,rx:10,ry:10;
-    classDef tier fill:#000000,stroke:#66ff66,stroke-width:2px,color:#ffffff,rx:5,ry:5;
-    classDef logic fill:#000000,stroke:#99ff99,stroke-width:2px,color:#ffffff,stroke-dasharray: 5 5,rx:5,ry:5;
-    linkStyle default stroke:#66ff66,stroke-width:2px;
-
-    User(["用户输入"]):::user --> Ingest
-    
-    subgraph Velonlabs ["Velonlabs 认知内核"]
-        direction TB
-        style Velonlabs fill:#111111,stroke:#66ff66,stroke-width:2px,color:#66ff66
-        Ingest[("接收")]:::logic --> Oracle
-        Oracle{{"本地 Oracle\n(qwen2.5:0.5b)"}}:::core
-        
-        Oracle == 深度分析 ==> Router(("神经突触\n决策器")):::logic
-    end
-
-    Router -->|反射层 (1-3)| T1["Tier 1: Reflex\n(Groq / Llama-3)"]:::tier
-    Router -->|标准层 (4-7)| T2["Tier 2: Standard\n(GPT-4o-mini)"]:::tier
-    Router -->|深度层 (8-10)| T3["Tier 3: Deep\n(Claude 3.5 Sonnet)"]:::tier
-
-    T1 -.->|质量验证| AutoCheck{"智能质检"}:::logic
-    AutoCheck -->|未通过| T2
-    AutoCheck -->|通过| Output
-    
-    T2 --> Output
-    T3 --> Output([("最终结果")]):::user
+```
+用户输入
+    |
+    v
+[本地 Oracle] -- Ollama (qwen2.5:0.5b, <500ms)
+    |
+    |-- complexity: 1-10 (复杂度)
+    |-- domain: coding / creative / logic / ... (领域)
+    |-- suggested_tier: reflex / standard / deep (建议层级)
+    |
+    v
+[分级决策]
+    |
+    |-- 分数 1-3  -->  Reflex 层  -->  openrouter:groq/llama-3-8b-8192
+    |-- 分数 4-7  -->  Standard 层 -->  gpt-4o-mini
+    |-- 分数 8-10 -->  Deep 层     -->  claude-3-5-sonnet
+    |
+    v
+[返回决策: { provider, model, tier, judgment }]
 ```
 
+---
 
+## 竞品对比：OpenSage vs ClawRouter
 
-## 3. 成本效益分析 (ROI)
+**ClawRouter** (https://github.com/BlockRunAI/ClawRouter) 是另一个优秀的路由方案。两者的核心区别在于**路由逻辑**。
 
-OpenSage 的设计基于一个核心洞察：**80% 的日常对话并不需要 GPT-4 级别的算力。**
+| 维度 | ClawRouter | OpenSage |
+| :--- | :--- | :--- |
+| **路由原理** | **正则关键词匹配 (Regex)** | **语义认知理解 (Cognitive)** |
+| **判断方式** | "如果包含 '画图' 则用 A 模型" | "分析用户意图复杂度，按需分配算力" |
+| **优势** | 极速 (微秒级)、配置简单、确定性高 | 灵活、能理解模糊指令、能判断任务难易 |
+| **劣势** | 机械死板，无法处理未定义的表达 | 需运行本地模型，有约 400ms 延迟 |
+| **适用场景** | 明确的指令系统、工具调用路由 | 自然语言对话、混合任务处理、成本优化 |
 
-通过将简单查询卸载到本地或廉价模型，机构用户可以在混合负载下实现显著的成本节约，同时为复杂任务保留足够的算力预算。
+**结论**：
+- 如果构建**指令型 Bot**（如 Discord Bot），ClawRouter 更轻量高效。
+- 如果构建**智能 Agent**（如 AeonsagePro），需要根据问题难易度智能省钱，OpenSage 是更好的选择。
 
-| 请求类型 | 典型占比 | 传统成本 | OpenSage 优化成本 |
-| :--- | :---: | :--- | :--- |
-| **日常闲聊 / 简单查询** | ~30% | $0.03 / 次 (GPT-4) | **$0.00** (Local/Groq) |
-| **常规逻辑 / 代码补全** | ~50% | $0.03 / 次 (GPT-4) | **$0.0002** (Llama 3) |
-| **深度推理 / 复杂架构** | ~20% | $0.03 / 次 (GPT-4) | **$0.03** (Claude 3.5) |
+---
 
-> **预期收益**：在混合场景下，API 总体支出可降低约 **80%**。
+## 集成指南
 
+OpenSage 返回决策，你的 Agent 框架负责执行。
 
+### 对接 AeonsagePro
 
-## 4. 安装与配置 (Setup)
+OpenSage 是 AeonsagePro 的核心组件。在 Pro 版代码中，集成逻辑位于 `src/commands/agent.ts`：
 
-### 4.1 前置要求
-OpenSage 依赖本地推理引擎来运行 Oracle 模型。我们官方支持并推荐使用 **Ollama**。
+```typescript
+// 在使用默认模型前进行拦截
+if (!sessionEntry?.modelOverride && !opts.model) {
+    // 动态加载路由模块
+    const { CognitiveRouter } = await import("../cognitive-router/router.js");
+    const router = CognitiveRouter.getInstance();
+    
+    // 获取路由决策
+    const routeResult = await router.route(userMessage);
 
-1.  **安装 Ollama**: 请访问 [ollama.com](https://ollama.com) 下载并安装。
-2.  **获取 Oracle 模型**:
-    ```bash
-    ollama pull qwen2.5:0.5b
-    ```
-    *注：`qwen2.5:0.5b` 因其极快的推理速度和优秀的分类准确率被选为默认 Oracle。*
+    // 使用决策覆盖默认模型
+    provider = routeResult.provider;  // 例如 "openrouter"
+    model = routeResult.model;        // 例如 "groq/llama-3-8b-8192"
+}
+// 随后使用选定的 provider/model 执行请求...
+```
 
-### 4.2 快速开始
-克隆仓库并安装依赖：
+### 对接其他 Agent (如 OpenClaw / LangChain)
+
+OpenSage 可作为前置中间件集成。
+
+```typescript
+import { CognitiveRouter } from "opensage/src/router.js";
+
+async function handleUserMessage(prompt) {
+    // 1. 获取决策
+    const router = CognitiveRouter.getInstance();
+    const decision = await router.route(prompt);
+    
+    console.log(`OpenSage 建议使用: ${decision.model}`);
+
+    // 2. 执行调用 (以 LangChain 为例)
+    // const llm = new ChatOpenAI({ modelName: decision.model });
+    // const response = await llm.call(prompt);
+}
+```
+
+---
+
+## 快速开始
+
+### 1. 准备环境
+
+- Node.js >= 18
+- [Ollama](https://ollama.com) (运行本地 Oracle)
+
+安装并拉取模型：
+```bash
+ollama pull qwen2.5:0.5b
+```
+
+### 2. 安装与运行
 
 ```bash
 git clone https://github.com/Vleonone/Opensage.git
 cd Opensage
 npm install
+
+# 运行演示脚本
+npx ts-node examples/demo.ts
 ```
 
+---
 
+## 许可证
 
-## 5. 使用指南 (Usage)
-
-### 5.1 代码集成
-OpenSage 设计为可以直接嵌入到您的 Agent 决策循环中。
-
-```typescript
-import { CognitiveRouter } from "./src/router.js";
-
-// 初始化路由单例
-const router = CognitiveRouter.getInstance();
-
-// 路由一个请求
-const result = await router.route("帮我优化这个 React Hook 的竞态问题");
-
-// result 对象包含最佳的模型选择建议
-console.log(result);
-// 输出示例:
-// {
-//   provider: "openrouter",
-//   model: "groq/llama-3-8b-8192",
-//   tier: "reflex",
-//   judgment: { 
-//     complexity: 3, 
-//     domain: "coding" 
-//   }
-// }
-```
-
-### 5.2 终端仪表盘 (TUI)
-用于开发调试的实时监控界面。
-
-```bash
-npm run gui
-```
-
-### 5.3 生产构建
-编译 TypeScript 源码以供生产环境使用：
-
-```bash
-npm run build
-node dist/tui_demo.js
-```
-
-
-
-## 6. 框架集成 (Integration)
-
-### 6.1 与 AeonsagePro 集成
-在 AeonsagePro 中，OpenSage 作为中间件拦截器运行。它在 `src/commands/agent.ts` 中拦截用户消息，在建立会话前覆盖默认的模型配置。
-
-### 6.2 通用集成模式 (OpenClaw / LangChain)
-OpenSage 是框架无关的，适用于任何支持动态模型选择的系统。
-
-```typescript
-// 通用集成示例
-async function handleRequest(prompt: string) {
-    // 1. 获取路由决策
-    const decision = await router.route(prompt);
-    
-    // 2. 根据决策配置 LLM 客户端
-    const llmClient = new LLMClient({
-        provider: decision.provider,
-        model: decision.model
-    });
-    
-    // 3. 执行请求
-    return await llmClient.complete(prompt);
-}
-```
-
-
-
-## 7. 配置与规划 (Roadmap)
-
-### 7.1 自定义模型映射
-您可以在 `src/routing/cascading.ts` 中修改层级与模型的映射关系，以适配您的 API 订阅情况。
-
-```typescript
-export const TIER_MODEL_MAP = {
-    reflex:   ["openrouter:groq/llama-3-8b-8192", "ollama:qwen2.5:0.5b"],
-    standard: ["gpt-4o-mini", "claude-3-haiku"],
-    deep:     ["claude-3-5-sonnet-20240620", "gpt-4o"],
-};
-```
-
-### 7.2 路线图
-*   **智能反思环**：实现基于执行结果的自动升格重试机制。
-*   **插件系统**：支持加载外部定义的自定义路由策略。
-*   **全链路监控**：内置 Token 消耗统计与成本实时可视化。
-*   **多语言 SDK**：计划推出 Python 版本 SDK 以支持 AI 研究工作流。
-
-
-
-## 8. 项目结构 (Structure)
-
-```
-src/
-  router.ts              -- CognitiveRouter (核心入口)
-  oracle/
-    engine.ts            -- OracleEngine (基于 Ollama 的本地推理)
-  routing/
-    cascading.ts         -- CascadingRouter (分层与模型映射逻辑)
-docs/
-  design.md              -- 技术架构白皮书
-  setup.md               -- 环境搭建指南
-  comparison.md          -- 方案对比分析
-  integrations.md        -- 生态集成指南 (Mem0, MCP, ChromaDB)
-examples/
-  demo.ts                -- 演示脚本
-```
-
-
-
-## 9. 贡献指南 (Contributing)
-
-我们欢迎社区贡献！请确保在提交 PR 前运行并通过所有测试用例。
+MIT - [AeonSage Team](https://aeonsage.org)
