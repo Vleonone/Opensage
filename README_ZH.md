@@ -24,7 +24,7 @@
 [![Ollama](https://img.shields.io/badge/Ollama-Required-39ff14?style=flat-square&labelColor=c2c2c2)](https://ollama.com)
 [![OpenRouter](https://img.shields.io/badge/OpenRouter-Compatible-39ff14?style=flat-square&labelColor=c2c2c2)](https://openrouter.ai)
 
-> 🚧 **Alpha 阶段** — 核心路由逻辑已实现，CLI 和插件系统正在开发中
+> **Alpha 阶段** — 核心路由逻辑已实现，CLI 和插件系统正在开发中
 
 </div>
 
@@ -37,7 +37,7 @@
 
 ---
 
-## 这是什么？
+## ● 这是什么？
 
 **OpenSage** 是一个生产级的**认知路由引擎**，部署在用户和 LLM 之间。
 
@@ -51,18 +51,18 @@
 
 ---
 
-## 核心优势
+## ● 核心优势
 
 | 特性 | 说明 |
 | :--- | :--- |
-| 🧠 **本地 Oracle** | 一个 0.5B 参数的本地 SLM 在你的机器上运行，分析意图、复杂度和领域，**不消耗任何 API 额度** |
-| 💰 **降低 95% 成本** | 80% 的请求（闲聊、简单重构）自动路由到 Groq/Llama 3 等免费或近乎免费的模型 |
-| ⚡ **延迟降低 20 倍** | 简单查询在 **< 0.6 秒** 内返回，跳过 GPT-4 的 12 秒等待 |
-| 🔒 **数据主权** | Oracle 在本地运行。敏感数据永远不触碰第三方云，除非你主动配置 |
+| **本地 Oracle** | 一个 0.5B 参数的本地 SLM 在你的机器上运行，分析意图、复杂度和领域，**不消耗任何 API 额度** |
+| **降低 95% 成本** | 80% 的请求（闲聊、简单重构）自动路由到 Groq/Llama 3 等免费或近乎免费的模型 |
+| **延迟降低 20 倍** | 简单查询在 **< 0.6 秒** 内返回，跳过 GPT-4 的 12 秒等待 |
+| **数据主权** | Oracle 在本地运行。敏感数据永远不触碰第三方云，除非你主动配置 |
 
 ---
 
-## 成本实测对比
+## ● 成本实测对比
 
 > 以下基于 1000 次混合请求的估算模型：
 
@@ -76,7 +76,7 @@
 
 ---
 
-## 架构：乐观级联（Optimistic Cascading）
+## ● 架构：乐观级联（Optimistic Cascading）
 
 ```mermaid
 graph TD
@@ -114,7 +114,7 @@ graph TD
 
 ---
 
-## 环境要求
+## ● 环境要求
 
 | 依赖 | 版本 | 用途 |
 | :--- | :--- | :--- |
@@ -124,13 +124,13 @@ graph TD
 
 ---
 
-## 快速开始
+## ● 快速开始
 
 ### 1. 准备 Oracle 模型 (必须步骤)
 
 OpenSage 依赖本地模型来进行智能路由决策。
 
-👉 **请参考 [安装指南](docs/setup.md) 完成 Ollama 和模型的配置。**
+请参考 [安装指南](docs/setup.md) 完成 Ollama 和模型的配置。
 
 > 我们使用 `qwen2.5:0.5b` 作为 Oracle 核心，因为它在速度和准确性上达到了完美平衡。
 
@@ -168,7 +168,7 @@ console.log(result);
 npx ts-node examples/demo.ts
 ```
 
-## 运行项目
+## ● 运行项目
 
 ### 1. 终端图形界面 (TUI)
 体验 OpenSage 的最佳方式。展示一个实时的、"黑客风格"的终端界面，包含实时路由日志。
@@ -199,7 +199,7 @@ node dist/tui_demo.js
 
 ---
 
-## 与 AeonsagePro 的关系
+## ● 与 AeonsagePro 的关系
 
 OpenSage 是 **[AeonsagePro](https://github.com/velonone/Aeonsagepro)** 的开源认知路由核心。
 
@@ -207,7 +207,7 @@ OpenSage 是 **[AeonsagePro](https://github.com/velonone/Aeonsagepro)** 的开�
 
 ---
 
-## 文档
+## ● 文档
 
 | 文档 | 说明 |
 | :--- | :--- |
@@ -219,7 +219,7 @@ OpenSage 是 **[AeonsagePro](https://github.com/velonone/Aeonsagepro)** 的开�
 
 ---
 
-## 路线图
+## ● 路线图
 
 - [ ] **插件系统** — 允许用户注入自定义路由逻辑
 - [ ] **成本追踪器** — 内置 Token 用量统计
@@ -230,7 +230,7 @@ OpenSage 是 **[AeonsagePro](https://github.com/velonone/Aeonsagepro)** 的开�
 
 ---
 
-## 参与贡献
+## ● 参与贡献
 
 详见 [CONTRIBUTING.md](./CONTRIBUTING.md)。我们欢迎：
 
@@ -238,7 +238,7 @@ OpenSage 是 **[AeonsagePro](https://github.com/velonone/Aeonsagepro)** 的开�
 - Oracle 模型基准测试（Phi-3、Gemma-2b 等）
 - 框架集成适配器（LangChainJS、Vercel AI SDK 等）
 
-## 生态依赖
+## ● 生态依赖
 
 OpenSage 站在这些巨人的肩膀上：
 
@@ -246,6 +246,6 @@ OpenSage 站在这些巨人的肩膀上：
 - **[OpenRouter](https://openrouter.ai)** — 统一模型市场
 - **[Groq](https://groq.com)** — 亚秒级推理硬件
 
-## 许可证
+## ● 许可证
 
 MIT © [AeonSage Team](https://aeonsage.org)

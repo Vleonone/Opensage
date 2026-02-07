@@ -34,7 +34,7 @@
 
 ---
 
-## What OpenSage Does
+## ● What OpenSage Does
 
 OpenSage is a **routing decision engine**. It does not execute LLM calls itself — it tells your agent **which model to use** for a given prompt.
 
@@ -57,7 +57,7 @@ It works by running a local Small Language Model (the "Oracle") to semantically 
 
 ---
 
-## How It Works
+## ● How It Works
 
 
 ```mermaid
@@ -96,7 +96,7 @@ The Oracle is fail-open: if Ollama is not running or times out, the router defau
 
 ---
 
-## Cost Rationale
+## ● Cost Rationale
 
 The value proposition is straightforward: most LLM traffic does not need GPT-4.
 
@@ -110,17 +110,17 @@ Estimated savings: **~80%** on a mixed workload. Actual results depend on your t
 
 ---
 
-## Prerequisites (Critical)
+## ● Prerequisites (Critical)
 
 Before running OpenSage, you **must** have the Local Oracle running.
 
-👉 **Please follow our [Setup Guide](docs/setup.md) to install Ollama and the required model.**
+Please follow our [Setup Guide](docs/setup.md) to install Ollama and the required model.
 
 OpenSage relies on this local model (`qwen2.5:0.5b`) to make intelligent routing decisions without API costs.
 
 ---
 
-## Quick Start
+## ● Quick Start
 
 ```bash
 git clone https://github.com/Vleonone/Opensage.git
@@ -148,7 +148,7 @@ Run the demo:
 npx ts-node examples/demo.ts
 ```
 
-## Running the Project
+## ● Running the Project
 
 ### 1. Terminal UI (TUI) Dashboard
 The best way to experience OpenSage. Displays a real-time, "hacker-style" interface with live routing logs.
@@ -179,7 +179,7 @@ node dist/tui_demo.js
 
 ---
 
-## Integration Guide
+## ● Integration Guide
 
 OpenSage is a pure routing layer. It returns a model selection decision — your agent framework uses that decision to make the actual LLM call. This makes it compatible with **any** agent system that allows you to choose which model to call.
 
@@ -265,7 +265,7 @@ export const TIER_MODEL_MAP = {
 
 ---
 
-## Project Structure
+## ● Project Structure
 
 ```
 src/
@@ -285,7 +285,7 @@ examples/
 
 ---
 
-## Roadmap
+## ● Roadmap
 
 - Output verification and automatic tier escalation (cascading retry)
 - Environment variable configuration for Oracle URL, model, and timeout
@@ -297,7 +297,7 @@ examples/
 
 ---
 
-## Contributing
+## ● Contributing
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md). We welcome pull requests for:
 
@@ -307,7 +307,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md). We welcome pull requests for:
 
 ---
 
-## Ecosystem
+## ● Ecosystem
 
 OpenSage is the open-source routing core of [AeonsagePro](https://github.com/velonone/Aeonsagepro). It relies on:
 
@@ -317,6 +317,6 @@ OpenSage is the open-source routing core of [AeonsagePro](https://github.com/vel
 
 ---
 
-## License
+## ● License
 
 MIT - [AeonSage Team](https://aeonsage.org)
