@@ -22,7 +22,7 @@
         "openrouter"
     ],
     "author": "AeonSage Team",
-    "license": "SEE LICENSE IN LICENSE",
+    "license": "Hybrid (Apache-2.0 / OSCL)",
     "dependencies": {
         "chalk": "^4.1.2",
         "express": "^5.2.1",

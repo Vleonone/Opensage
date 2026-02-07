@@ -1,22 +1,42 @@
-Velonlabs & AeonSage Personal Use License
+OPEN SAGET HYBRID LICENSE
+Version 1.0
 
-Copyright (c) 2026 Velonlabs & AeonSage. All Rights Reserved.
+This software is licensed under a hybrid model to ensure open innovation while protecting core intellectual property and commercial sustainability.
 
-1. PERMISSION FOR PERSONAL USE
-   Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to use, copy, modify, and merge the Software for PERSONAL, NON-COMMERCIAL purposes only.
-
-2. COMMERCIAL USE PROHIBITED
-   Commercial use of this Software is STRICTLY PROHIBITED without a separate commercial license from Velonlabs & AeonSage.
+1. ROUTER CORE (Apache-2.0)
+   Applies to: All files in `src/routing/` and `src/router.ts`.
    
-   "Commercial use" includes, but is not limited to:
-   - Using the Software to provide services to third parties for a fee.
-   - Integrating the Software into a product that is sold or licensed to third parties.
-   - Using the Software in any business workflow that generates revenue.
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+   
+       http://www.apache.org/licenses/LICENSE-2.0
+   
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
 
-   To apply for a commercial license, please contact the copyright holders.
+2. ORACLE LOGIC (OSCL - Open Source Commercial License)
+   Applies to: All files in `src/oracle/` and any logic derived from the "Oracle" higher-order reasoning specifications.
+   
+   - Source Available: You may view, modify, and use this code for personal, educational, and non-commercial testing purposes.
+   - Commercial Restriction: You may NOT use this code in any commercial product, service, or workflow without a separate commercial license from Velonlabs & AeonSage.
+   - Redistribution: You may redistribute unmodified copies for non-commercial purposes, provided this license notice is preserved.
 
-3. REDISTRIBUTION
-   Redistribution of the Software, with or without modification, must retain the above copyright notice, this list of conditions, and the following disclaimer.
+3. SAAS / CLOUD SERVICES (Commercial)
+   Applies to: Any deployment of this software as a hosted service (SaaS), API provider, or managed platform.
+   
+   - Commercial use of the OpenSage Core or Oracle Logic to provide a paid service to third parties is STRICTLY PROHIBITED without a commercial license.
+   - For commercial licensing inquiries, please contact: Velonlabs & AeonSage.
 
-4. DISCLAIMER
-   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+4. BRANDING & TRADEMARK
+   Applies to: The names "OpenSage", "AeonSage", "Velonlabs", and all associated logos, icons (including `assets/`), and visual designs.
+   
+   - These are trademarks of Velonlabs & AeonSage.
+   - You may not use these marks to endorse or promote products derived from this software without specific prior written permission.
+   - You may not modify or remove branding from the official distribution.
+
+--------------------------------------------------------------------------
+Copyright (c) 2026 Velonlabs & AeonSage. All Rights Reserved.

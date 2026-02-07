@@ -17,7 +17,7 @@
 </p>
 
 [![Version](https://img.shields.io/badge/Version-1.0.0-00B51A?style=flat-square&labelColor=c2c2c2)](./package.json)
-[![License](https://img.shields.io/badge/License-Personal_Use_Only-00B51A?style=flat-square&labelColor=c2c2c2)](./LICENSE)
+[![License](https://img.shields.io/badge/License-Hybrid_Apache_2.0_&_OSCL-00B51A?style=flat-square&labelColor=c2c2c2)](./LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-00B51A?style=flat-square&logo=typescript&logoColor=white&labelColor=c2c2c2)](./tsconfig.json)
 [![Node](https://img.shields.io/badge/Node.js-18+-00B51A?style=flat-square&logo=node.js&logoColor=white&labelColor=c2c2c2)](https://nodejs.org)
 [![Ollama](https://img.shields.io/badge/Ollama-Required-00B51A?style=flat-square&labelColor=c2c2c2)](https://ollama.com)
