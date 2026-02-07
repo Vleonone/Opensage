@@ -1,8 +1,8 @@
 # 🧩 The Intelligence Stack: Making OpenSage Smarter
 
-OpenSage provides the **Brain (Routing)**. To build a complete Sovereign Agent, you need **Memory**, **Tools**, and **Senses**.
+OpenSage is designed as a **Modular Orchestrator**. It doesn't force you to use specific tools, but it binds the best open-source components into a cohesive system.
 
-Here are the certified "Force Multipliers" we recommend pairing with OpenSage:
+These are **independent, industry-standard projects** that OpenSage natively integrates with to form a "Super-Agent":
 
 ## 1. Memory (The Hippocampus)
 *Give your router long-term context.*
