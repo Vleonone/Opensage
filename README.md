@@ -1,6 +1,6 @@
 <div align="center">
 
-# OPENSAGE
+<img src="https://raw.githubusercontent.com/Vleonone/Opensage/main/assets/opensage_banner.png" alt="OPENSAGE" width="100%">
 
 **The Reference Implementation of Sovereign Intelligence**
 
@@ -11,16 +11,8 @@
   <a href="docs/sovereign-kernel.md">Kernel Documentation</a>
 </p>
 
-<p align="center">
-  <a href="https://github.com/Vleonone/AeonsagePro/blob/main/docs/install.md">
-    <img src="https://img.shields.io/badge/MAC-INSTALL-7209b7?style=for-the-badge&logo=apple&logoColor=white&labelColor=black" alt="Mac Install">
-  </a>
-  <a href="https://github.com/Vleonone/AeonsagePro/blob/main/docs/install.md#50-docker-deployment-containerized-isolation">
-    <img src="https://img.shields.io/badge/WIN-DOCKER-7209b7?style=for-the-badge&logo=docker&logoColor=white&labelColor=black" alt="Windows Docker">
-  </a>
-</p>
 
-[![License](https://img.shields.io/badge/License-MIT-gray?style=flat-square)](./LICENSE)
+
 [![License](https://img.shields.io/badge/License-MIT-gray?style=flat-square)](./LICENSE)
 
 </div>
@@ -45,7 +37,7 @@
 ```mermaid
 graph TD
     User([User Request]) --> Gateway[Gateway Node]
-    Gateway --> Oracle{Local Oracle<br>(Small LM)}
+    Gateway --> Oracle{"Local Oracle<br>(Small LM)"}
     Oracle -->|High Entropy| Router[Router Logic]
     Router -->|Tier 1: Reflex| LocalLLM[Local Llama3]
     Router -->|Tier 2: Reasoning| CloudLLM[Groq / OpenRouter]
